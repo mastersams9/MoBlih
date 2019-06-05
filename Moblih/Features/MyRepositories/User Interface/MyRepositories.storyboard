@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jZc-y3-T6H">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Repositories-->
+        <scene sceneID="L2s-f2-kHK">
+            <objects>
+                <viewController storyboardIdentifier="MyRepositoriesViewController" title="My Repositories" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jZc-y3-T6H" customClass="MyRepositoriesViewController" customModule="Moblih" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cqf-YQ-rWD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1pg-Af-IVC">
+                                <rect key="frame" x="8" y="28" width="359" height="569"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQa-Gh-xQ6">
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <color key="backgroundColor" name="linkColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KCl-s3-996"/>
+                                </constraints>
+                                <state key="normal" title="Add new Repository">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addNewRepositoryButtonDidTouchUpInside:" destination="jZc-y3-T6H" eventType="touchUpInside" id="zDj-mZ-gd6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KRc-Ws-NFY" firstAttribute="trailing" secondItem="NQa-Gh-xQ6" secondAttribute="trailing" constant="20" id="4aY-Hp-k5X"/>
+                            <constraint firstItem="NQa-Gh-xQ6" firstAttribute="centerX" secondItem="KRc-Ws-NFY" secondAttribute="centerX" id="NNT-ar-eZc"/>
+                            <constraint firstItem="NQa-Gh-xQ6" firstAttribute="top" secondItem="1pg-Af-IVC" secondAttribute="bottom" id="NXY-XI-DGO"/>
+                            <constraint firstItem="1pg-Af-IVC" firstAttribute="leading" secondItem="KRc-Ws-NFY" secondAttribute="leading" constant="8" id="lsE-Nx-c7b"/>
+                            <constraint firstItem="1pg-Af-IVC" firstAttribute="top" secondItem="KRc-Ws-NFY" secondAttribute="top" constant="8" id="mN2-we-Dp5"/>
+                            <constraint firstItem="KRc-Ws-NFY" firstAttribute="trailing" secondItem="1pg-Af-IVC" secondAttribute="trailing" constant="8" id="nXM-7a-QoU"/>
+                            <constraint firstItem="KRc-Ws-NFY" firstAttribute="bottom" secondItem="NQa-Gh-xQ6" secondAttribute="bottom" constant="20" id="un9-ZF-AS1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KRc-Ws-NFY"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="1pg-Af-IVC" id="QpD-BA-1Yc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DW0-KS-HDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="255" y="191"/>
+        </scene>
+    </scenes>
+</document>

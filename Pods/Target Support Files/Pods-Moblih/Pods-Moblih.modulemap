@@ -1,0 +1,6 @@
+framework module Pods_Moblih {
+  umbrella header "Pods-Moblih-umbrella.h"
+
+  export *
+  module * { export * }
+}

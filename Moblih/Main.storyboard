@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nb6-Rj-o7P">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Tab Bar Controller-->
+        <scene sceneID="EXU-Tm-hGR">
+            <objects>
+                <tabBarController storyboardIdentifier="MyTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nb6-Rj-o7P" customClass="MyTabBarController" customModule="Moblih" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Z8L-Aw-93H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="2Ae-xG-QEm" kind="relationship" relationship="viewControllers" id="w6s-Ja-dAP"/>
+                        <segue destination="HUe-Rv-dKE" kind="relationship" relationship="viewControllers" id="BtO-uS-Fvc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qC6-WV-jHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2004" y="451"/>
+        </scene>
+        <!--Repositories-->
+        <scene sceneID="vED-Lu-j9O">
+            <objects>
+                <navigationController id="2Ae-xG-QEm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Repositories" image="repositories" id="Bzn-ew-oss"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="orW-0n-e5K">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KAU-mP-KSZ" kind="relationship" relationship="rootViewController" id="pZ7-Rv-6It"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZh-5r-Bwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-523" y="386"/>
+        </scene>
+        <!--MyRepositories-->
+        <scene sceneID="IAe-19-Fu2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyRepositories" id="KAU-mP-KSZ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lOt-Vu-fCC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TPR-4g-Soq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="246" y="386"/>
+        </scene>
+        <!--My Profile-->
+        <scene sceneID="j9c-rg-BPZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HUe-Rv-dKE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Profile" image="myProfile" id="J2l-cq-k0M"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l4B-Wg-JZF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tgj-zH-rCl" kind="relationship" relationship="rootViewController" id="zcE-W4-5GV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yWw-RL-09I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-522" y="1051"/>
+        </scene>
+        <!--MyProfile-->
+        <scene sceneID="pEW-Xa-hta">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyProfile" id="tgj-zH-rCl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Xjs-Od-wsd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vrG-IQ-3bD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="272" y="1051"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="myProfile" width="24" height="24"/>
+        <image name="repositories" width="24" height="24"/>
+    </resources>
+</document>

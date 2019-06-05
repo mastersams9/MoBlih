@@ -1,0 +1,24 @@
+PODS:
+  - ListPlaceholder (1.4)
+  - NBNRequestKit (2.2.0)
+  - OctoKit.swift (0.8.0):
+    - NBNRequestKit (~> 2.0)
+
+DEPENDENCIES:
+  - ListPlaceholder
+  - OctoKit.swift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ListPlaceholder
+    - NBNRequestKit
+    - OctoKit.swift
+
+SPEC CHECKSUMS:
+  ListPlaceholder: 08ddaddf67520a20fc52cf37160fb56aa64d071d
+  NBNRequestKit: 30c39d8e23e94f935bfc2a25789c44e4a6e1bfdd
+  OctoKit.swift: 2f51efbf888997fc625b91894777e76e9142d95b
+
+PODFILE CHECKSUM: c5d91091aed282e0825ac63a2d36fb656be5a8c0
+
+COCOAPODS: 1.6.1
