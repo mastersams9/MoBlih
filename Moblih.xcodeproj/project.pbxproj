@@ -24,7 +24,7 @@
 		10175B0122A4187000ED09CC /* MyProfileDetailsModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10175AFA22A4187000ED09CC /* MyProfileDetailsModuleFactory.swift */; };
 		10175B0222A4187000ED09CC /* MyProfileDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10175AFB22A4187000ED09CC /* MyProfileDetailsView.xib */; };
 		10175B0322A4187000ED09CC /* MyProfileDetailsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10175AFC22A4187000ED09CC /* MyProfileDetailsViewDelegate.swift */; };
-		10175B2222A42EEF00ED09CC /* AddRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10175B1822A42EEE00ED09CC /* AddRepositoryViewController.swift */; };
+		10175B2222A42EEF00ED09CC /* AddRepositoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10175B1822A42EEE00ED09CC /* AddRepositoryTableViewController.swift */; };
 		10175B2322A42EEF00ED09CC /* AddRepositoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10175B1922A42EEE00ED09CC /* AddRepositoryInteractor.swift */; };
 		10175B2422A42EEF00ED09CC /* AddRepository.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10175B1A22A42EEE00ED09CC /* AddRepository.storyboard */; };
 		10175B2522A42EEF00ED09CC /* AddRepositoryPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10175B1B22A42EEE00ED09CC /* AddRepositoryPresenterInput.swift */; };
@@ -74,9 +74,85 @@
 		102EA073228711300099F5C8 /* MyRepositoriesPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102EA06B228711300099F5C8 /* MyRepositoriesPresenterOutput.swift */; };
 		102EA074228711300099F5C8 /* MyRepositoriesModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102EA06C228711300099F5C8 /* MyRepositoriesModuleFactory.swift */; };
 		102EA075228711300099F5C8 /* MyRepositoriesRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102EA06D228711300099F5C8 /* MyRepositoriesRouterInput.swift */; };
+		105F478022B6697C00FDE4DD /* CollaboratorsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F477F22B6697C00FDE4DD /* CollaboratorsListTableViewCell.swift */; };
+		105F478322B6709E00FDE4DD /* RepositoryInformationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F478222B6709E00FDE4DD /* RepositoryInformationRepository.swift */; };
+		105F478522B670A800FDE4DD /* RepositoryInformationRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F478422B670A800FDE4DD /* RepositoryInformationRepositoryProtocol.swift */; };
+		105F478822B676F000FDE4DD /* CollaboratorToDeleteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F478722B676F000FDE4DD /* CollaboratorToDeleteRepository.swift */; };
+		105F478A22B676FC00FDE4DD /* CollaboratorToDeleteRepositoryInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F478922B676FC00FDE4DD /* CollaboratorToDeleteRepositoryInput.swift */; };
+		105F478C22B6860900FDE4DD /* AddCollaboratorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F478B22B6860900FDE4DD /* AddCollaboratorRouter.swift */; };
+		105F478E22B6860E00FDE4DD /* AddCollaboratorRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F478D22B6860E00FDE4DD /* AddCollaboratorRouterInput.swift */; };
+		10D1178E22B54D6B000BEC73 /* FollowerToDeleteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1178D22B54D6B000BEC73 /* FollowerToDeleteRepository.swift */; };
+		10D1179022B54D70000BEC73 /* FollowerToDeleteRepositoryInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1178F22B54D70000BEC73 /* FollowerToDeleteRepositoryInput.swift */; };
+		10D1179922B5513B000BEC73 /* DeleteFollowerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1179222B5513B000BEC73 /* DeleteFollowerPresenter.swift */; };
+		10D1179A22B5513B000BEC73 /* DeleteFollowerPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1179322B5513B000BEC73 /* DeleteFollowerPresenterInput.swift */; };
+		10D1179B22B5513B000BEC73 /* DeleteFollowerPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1179422B5513B000BEC73 /* DeleteFollowerPresenterOutput.swift */; };
+		10D1179C22B5513B000BEC73 /* DeleteFollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1179522B5513B000BEC73 /* DeleteFollowerView.swift */; };
+		10D1179D22B5513B000BEC73 /* DeleteFollowerModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1179622B5513B000BEC73 /* DeleteFollowerModuleFactory.swift */; };
+		10D1179E22B5513B000BEC73 /* DeleteFollowerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10D1179722B5513B000BEC73 /* DeleteFollowerView.xib */; };
+		10D1179F22B5513B000BEC73 /* DeleteFollowerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1179822B5513B000BEC73 /* DeleteFollowerViewDelegate.swift */; };
+		10D117A422B55153000BEC73 /* DeleteFollowerInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117A122B55152000BEC73 /* DeleteFollowerInteractorOutput.swift */; };
+		10D117A522B55153000BEC73 /* DeleteFollowerInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117A222B55152000BEC73 /* DeleteFollowerInteractorInput.swift */; };
+		10D117A622B55153000BEC73 /* DeleteFollowerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117A322B55152000BEC73 /* DeleteFollowerInteractor.swift */; };
+		10D117B022B5A1EC000BEC73 /* CollaboratorsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D117A822B5A1EC000BEC73 /* CollaboratorsList.storyboard */; };
+		10D117B122B5A1EC000BEC73 /* CollaboratorsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117A922B5A1EC000BEC73 /* CollaboratorsListPresenter.swift */; };
+		10D117B222B5A1EC000BEC73 /* CollaboratorsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117AA22B5A1EC000BEC73 /* CollaboratorsListRouter.swift */; };
+		10D117B322B5A1EC000BEC73 /* CollaboratorsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117AB22B5A1EC000BEC73 /* CollaboratorsListTableViewController.swift */; };
+		10D117B422B5A1EC000BEC73 /* CollaboratorsListPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117AC22B5A1EC000BEC73 /* CollaboratorsListPresenterInput.swift */; };
+		10D117B522B5A1EC000BEC73 /* CollaboratorsListPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117AD22B5A1EC000BEC73 /* CollaboratorsListPresenterOutput.swift */; };
+		10D117B622B5A1EC000BEC73 /* CollaboratorsListModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117AE22B5A1EC000BEC73 /* CollaboratorsListModuleFactory.swift */; };
+		10D117B722B5A1EC000BEC73 /* CollaboratorsListRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117AF22B5A1EC000BEC73 /* CollaboratorsListRouterInput.swift */; };
+		10D117B922B5A323000BEC73 /* RepositoryInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117B822B5A323000BEC73 /* RepositoryInfoRouter.swift */; };
+		10D117BB22B5A328000BEC73 /* RepositoryInfoRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D117BA22B5A328000BEC73 /* RepositoryInfoRouterInput.swift */; };
 		6500B7CB22889C560062F25C /* MyRepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6500B7C922889C560062F25C /* MyRepositoryTableViewCell.swift */; };
 		6500B7CC22889C560062F25C /* MyRepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6500B7CA22889C560062F25C /* MyRepositoryTableViewCell.xib */; };
 		650220E4228D86D3007B4975 /* RepositoryInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650220E3228D86D3007B4975 /* RepositoryInformation.storyboard */; };
+		651C359D22AD7FDA0081E27E /* GithubAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C359C22AD7FDA0081E27E /* GithubAPIRepository.swift */; };
+		651C359F22AD80290081E27E /* GithubAPIRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C359E22AD80290081E27E /* GithubAPIRepositoryProtocol.swift */; };
+		651C35A122AD80750081E27E /* MoblihAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35A022AD80750081E27E /* MoblihAPI.swift */; };
+		651C35AB22B2E2640081E27E /* AddFollowerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35A422B2E2640081E27E /* AddFollowerPresenter.swift */; };
+		651C35AC22B2E2640081E27E /* AddFollowerPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35A522B2E2640081E27E /* AddFollowerPresenterInput.swift */; };
+		651C35AD22B2E2640081E27E /* AddFollowerPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35A622B2E2640081E27E /* AddFollowerPresenterOutput.swift */; };
+		651C35AE22B2E2640081E27E /* AddFollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35A722B2E2640081E27E /* AddFollowerView.swift */; };
+		651C35AF22B2E2640081E27E /* AddFollowerModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35A822B2E2640081E27E /* AddFollowerModuleFactory.swift */; };
+		651C35B022B2E2640081E27E /* AddFollowerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651C35A922B2E2640081E27E /* AddFollowerView.xib */; };
+		651C35B122B2E2640081E27E /* AddFollowerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35AA22B2E2640081E27E /* AddFollowerViewDelegate.swift */; };
+		651C35BC22B2E2B20081E27E /* AddFollowerInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35B922B2E2B20081E27E /* AddFollowerInteractorOutput.swift */; };
+		651C35BD22B2E2B20081E27E /* AddFollowerInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35BA22B2E2B20081E27E /* AddFollowerInteractorInput.swift */; };
+		651C35BE22B2E2B20081E27E /* AddFollowerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35BB22B2E2B20081E27E /* AddFollowerInteractor.swift */; };
+		651C35D322B5937E0081E27E /* CollaboratorsListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35D022B5937E0081E27E /* CollaboratorsListInteractorOutput.swift */; };
+		651C35D422B5937E0081E27E /* CollaboratorsListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35D122B5937E0081E27E /* CollaboratorsListInteractorInput.swift */; };
+		651C35D522B5937E0081E27E /* CollaboratorsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35D222B5937E0081E27E /* CollaboratorsListInteractor.swift */; };
+		651C35DF22B593A40081E27E /* AddCollaboratorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35D822B593A40081E27E /* AddCollaboratorPresenter.swift */; };
+		651C35E022B593A40081E27E /* AddCollaboratorPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35D922B593A40081E27E /* AddCollaboratorPresenterInput.swift */; };
+		651C35E122B593A40081E27E /* AddCollaboratorPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35DA22B593A40081E27E /* AddCollaboratorPresenterOutput.swift */; };
+		651C35E222B593A40081E27E /* AddCollaboratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35DB22B593A40081E27E /* AddCollaboratorView.swift */; };
+		651C35E322B593A40081E27E /* AddCollaboratorModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35DC22B593A40081E27E /* AddCollaboratorModuleFactory.swift */; };
+		651C35E422B593A40081E27E /* AddCollaboratorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651C35DD22B593A40081E27E /* AddCollaboratorView.xib */; };
+		651C35E522B593A40081E27E /* AddCollaboratorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35DE22B593A40081E27E /* AddCollaboratorViewDelegate.swift */; };
+		651C35EA22B593B70081E27E /* AddCollaboratorInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35E722B593B70081E27E /* AddCollaboratorInteractorOutput.swift */; };
+		651C35EB22B593B70081E27E /* AddCollaboratorInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35E822B593B70081E27E /* AddCollaboratorInteractorInput.swift */; };
+		651C35EC22B593B70081E27E /* AddCollaboratorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35E922B593B70081E27E /* AddCollaboratorInteractor.swift */; };
+		651C35F322B593E40081E27E /* RemoveCollaboratorInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35F022B593E40081E27E /* RemoveCollaboratorInteractorOutput.swift */; };
+		651C35F422B593E40081E27E /* RemoveCollaboratorInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35F122B593E40081E27E /* RemoveCollaboratorInteractorInput.swift */; };
+		651C35F522B593E40081E27E /* RemoveCollaboratorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35F222B593E40081E27E /* RemoveCollaboratorInteractor.swift */; };
+		651C35FD22B593EC0081E27E /* RemoveCollaboratorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35F622B593EC0081E27E /* RemoveCollaboratorPresenter.swift */; };
+		651C35FE22B593EC0081E27E /* RemoveCollaboratorPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35F722B593EC0081E27E /* RemoveCollaboratorPresenterInput.swift */; };
+		651C35FF22B593EC0081E27E /* RemoveCollaboratorPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35F822B593EC0081E27E /* RemoveCollaboratorPresenterOutput.swift */; };
+		651C360022B593EC0081E27E /* RemoveCollaboratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35F922B593EC0081E27E /* RemoveCollaboratorView.swift */; };
+		651C360122B593EC0081E27E /* RemoveCollaboratorModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35FA22B593EC0081E27E /* RemoveCollaboratorModuleFactory.swift */; };
+		651C360222B593EC0081E27E /* RemoveCollaboratorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651C35FB22B593EC0081E27E /* RemoveCollaboratorView.xib */; };
+		651C360322B593EC0081E27E /* RemoveCollaboratorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C35FC22B593EC0081E27E /* RemoveCollaboratorViewDelegate.swift */; };
+		651C360A22B68DEF0081E27E /* AddCollaboratorEditionInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C360722B68DEF0081E27E /* AddCollaboratorEditionInteractorOutput.swift */; };
+		651C360B22B68DEF0081E27E /* AddCollaboratorEditionInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C360822B68DEF0081E27E /* AddCollaboratorEditionInteractorInput.swift */; };
+		651C360C22B68DEF0081E27E /* AddCollaboratorEditionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C360922B68DEF0081E27E /* AddCollaboratorEditionInteractor.swift */; };
+		651C361522B68DFB0081E27E /* AddCollaboratorEdition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651C360D22B68DFB0081E27E /* AddCollaboratorEdition.storyboard */; };
+		651C361622B68DFB0081E27E /* AddCollaboratorEditionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C360E22B68DFB0081E27E /* AddCollaboratorEditionPresenter.swift */; };
+		651C361722B68DFB0081E27E /* AddCollaboratorEditionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C360F22B68DFB0081E27E /* AddCollaboratorEditionRouter.swift */; };
+		651C361822B68DFB0081E27E /* AddCollaboratorEditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C361022B68DFB0081E27E /* AddCollaboratorEditionViewController.swift */; };
+		651C361922B68DFB0081E27E /* AddCollaboratorEditionPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C361122B68DFB0081E27E /* AddCollaboratorEditionPresenterInput.swift */; };
+		651C361A22B68DFB0081E27E /* AddCollaboratorEditionPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C361222B68DFB0081E27E /* AddCollaboratorEditionPresenterOutput.swift */; };
+		651C361B22B68DFB0081E27E /* AddCollaboratorEditionModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C361322B68DFB0081E27E /* AddCollaboratorEditionModuleFactory.swift */; };
+		651C361C22B68DFB0081E27E /* AddCollaboratorEditionRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C361422B68DFB0081E27E /* AddCollaboratorEditionRouterInput.swift */; };
 		65F60B46228481C600AA4456 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F60B45228481C600AA4456 /* AppDelegate.swift */; };
 		65F60B4B228481C600AA4456 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F60B49228481C600AA4456 /* Authentication.storyboard */; };
 		65F60B4D228481C700AA4456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65F60B4C228481C700AA4456 /* Assets.xcassets */; };
@@ -114,7 +190,6 @@
 		65FA77F622A5800500327925 /* FollowingListPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FA77EF22A5800500327925 /* FollowingListPresenterOutput.swift */; };
 		65FA77F722A5800500327925 /* FollowingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FA77F022A5800500327925 /* FollowingListViewController.swift */; };
 		65FA77F822A5800500327925 /* FollowingListModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FA77F122A5800500327925 /* FollowingListModuleFactory.swift */; };
-		65FA77FA22A5800500327925 /* FollowingListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FA77F322A5800500327925 /* FollowingListViewDelegate.swift */; };
 		65FA77FE22A582C200327925 /* FollowingListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FA77FD22A582C200327925 /* FollowingListStoryboard.storyboard */; };
 		65FA780022A5846100327925 /* FollowingListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FA77FF22A5846100327925 /* FollowingListRouter.swift */; };
 		65FA780222A584A400327925 /* FollowingListRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FA780122A584A400327925 /* FollowingListRouterInput.swift */; };
@@ -163,7 +238,7 @@
 		10175AFA22A4187000ED09CC /* MyProfileDetailsModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDetailsModuleFactory.swift; sourceTree = "<group>"; };
 		10175AFB22A4187000ED09CC /* MyProfileDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProfileDetailsView.xib; sourceTree = "<group>"; };
 		10175AFC22A4187000ED09CC /* MyProfileDetailsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDetailsViewDelegate.swift; sourceTree = "<group>"; };
-		10175B1822A42EEE00ED09CC /* AddRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRepositoryViewController.swift; sourceTree = "<group>"; };
+		10175B1822A42EEE00ED09CC /* AddRepositoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRepositoryTableViewController.swift; sourceTree = "<group>"; };
 		10175B1922A42EEE00ED09CC /* AddRepositoryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRepositoryInteractor.swift; sourceTree = "<group>"; };
 		10175B1A22A42EEE00ED09CC /* AddRepository.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddRepository.storyboard; sourceTree = "<group>"; };
 		10175B1B22A42EEE00ED09CC /* AddRepositoryPresenterInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRepositoryPresenterInput.swift; sourceTree = "<group>"; };
@@ -213,12 +288,88 @@
 		102EA06B228711300099F5C8 /* MyRepositoriesPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRepositoriesPresenterOutput.swift; sourceTree = "<group>"; };
 		102EA06C228711300099F5C8 /* MyRepositoriesModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRepositoriesModuleFactory.swift; sourceTree = "<group>"; };
 		102EA06D228711300099F5C8 /* MyRepositoriesRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRepositoriesRouterInput.swift; sourceTree = "<group>"; };
+		105F477F22B6697C00FDE4DD /* CollaboratorsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorsListTableViewCell.swift; sourceTree = "<group>"; };
+		105F478222B6709E00FDE4DD /* RepositoryInformationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInformationRepository.swift; sourceTree = "<group>"; };
+		105F478422B670A800FDE4DD /* RepositoryInformationRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInformationRepositoryProtocol.swift; sourceTree = "<group>"; };
+		105F478722B676F000FDE4DD /* CollaboratorToDeleteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorToDeleteRepository.swift; sourceTree = "<group>"; };
+		105F478922B676FC00FDE4DD /* CollaboratorToDeleteRepositoryInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorToDeleteRepositoryInput.swift; sourceTree = "<group>"; };
+		105F478B22B6860900FDE4DD /* AddCollaboratorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorRouter.swift; sourceTree = "<group>"; };
+		105F478D22B6860E00FDE4DD /* AddCollaboratorRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorRouterInput.swift; sourceTree = "<group>"; };
+		10D1178D22B54D6B000BEC73 /* FollowerToDeleteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerToDeleteRepository.swift; sourceTree = "<group>"; };
+		10D1178F22B54D70000BEC73 /* FollowerToDeleteRepositoryInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerToDeleteRepositoryInput.swift; sourceTree = "<group>"; };
+		10D1179222B5513B000BEC73 /* DeleteFollowerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFollowerPresenter.swift; sourceTree = "<group>"; };
+		10D1179322B5513B000BEC73 /* DeleteFollowerPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFollowerPresenterInput.swift; sourceTree = "<group>"; };
+		10D1179422B5513B000BEC73 /* DeleteFollowerPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFollowerPresenterOutput.swift; sourceTree = "<group>"; };
+		10D1179522B5513B000BEC73 /* DeleteFollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFollowerView.swift; sourceTree = "<group>"; };
+		10D1179622B5513B000BEC73 /* DeleteFollowerModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFollowerModuleFactory.swift; sourceTree = "<group>"; };
+		10D1179722B5513B000BEC73 /* DeleteFollowerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteFollowerView.xib; sourceTree = "<group>"; };
+		10D1179822B5513B000BEC73 /* DeleteFollowerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFollowerViewDelegate.swift; sourceTree = "<group>"; };
+		10D117A122B55152000BEC73 /* DeleteFollowerInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFollowerInteractorOutput.swift; sourceTree = "<group>"; };
+		10D117A222B55152000BEC73 /* DeleteFollowerInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFollowerInteractorInput.swift; sourceTree = "<group>"; };
+		10D117A322B55152000BEC73 /* DeleteFollowerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFollowerInteractor.swift; sourceTree = "<group>"; };
+		10D117A822B5A1EC000BEC73 /* CollaboratorsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollaboratorsList.storyboard; sourceTree = "<group>"; };
+		10D117A922B5A1EC000BEC73 /* CollaboratorsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaboratorsListPresenter.swift; sourceTree = "<group>"; };
+		10D117AA22B5A1EC000BEC73 /* CollaboratorsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaboratorsListRouter.swift; sourceTree = "<group>"; };
+		10D117AB22B5A1EC000BEC73 /* CollaboratorsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaboratorsListTableViewController.swift; sourceTree = "<group>"; };
+		10D117AC22B5A1EC000BEC73 /* CollaboratorsListPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaboratorsListPresenterInput.swift; sourceTree = "<group>"; };
+		10D117AD22B5A1EC000BEC73 /* CollaboratorsListPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaboratorsListPresenterOutput.swift; sourceTree = "<group>"; };
+		10D117AE22B5A1EC000BEC73 /* CollaboratorsListModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaboratorsListModuleFactory.swift; sourceTree = "<group>"; };
+		10D117AF22B5A1EC000BEC73 /* CollaboratorsListRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaboratorsListRouterInput.swift; sourceTree = "<group>"; };
+		10D117B822B5A323000BEC73 /* RepositoryInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInfoRouter.swift; sourceTree = "<group>"; };
+		10D117BA22B5A328000BEC73 /* RepositoryInfoRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInfoRouterInput.swift; sourceTree = "<group>"; };
 		2FCB275C9AABFF0F8F1FE7C5 /* Pods_MoblihTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoblihTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A398A20374F693C0417F15F /* Pods-MoblihTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoblihTests.release.xcconfig"; path = "Target Support Files/Pods-MoblihTests/Pods-MoblihTests.release.xcconfig"; sourceTree = "<group>"; };
 		4D418375941CD5E984940329 /* Pods-MoblihTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoblihTests.debug.xcconfig"; path = "Target Support Files/Pods-MoblihTests/Pods-MoblihTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6500B7C922889C560062F25C /* MyRepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		6500B7CA22889C560062F25C /* MyRepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		650220E3228D86D3007B4975 /* RepositoryInformation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryInformation.storyboard; sourceTree = "<group>"; };
+		651C359C22AD7FDA0081E27E /* GithubAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIRepository.swift; sourceTree = "<group>"; };
+		651C359E22AD80290081E27E /* GithubAPIRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIRepositoryProtocol.swift; sourceTree = "<group>"; };
+		651C35A022AD80750081E27E /* MoblihAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoblihAPI.swift; sourceTree = "<group>"; };
+		651C35A422B2E2640081E27E /* AddFollowerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFollowerPresenter.swift; sourceTree = "<group>"; };
+		651C35A522B2E2640081E27E /* AddFollowerPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFollowerPresenterInput.swift; sourceTree = "<group>"; };
+		651C35A622B2E2640081E27E /* AddFollowerPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFollowerPresenterOutput.swift; sourceTree = "<group>"; };
+		651C35A722B2E2640081E27E /* AddFollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFollowerView.swift; sourceTree = "<group>"; };
+		651C35A822B2E2640081E27E /* AddFollowerModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFollowerModuleFactory.swift; sourceTree = "<group>"; };
+		651C35A922B2E2640081E27E /* AddFollowerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFollowerView.xib; sourceTree = "<group>"; };
+		651C35AA22B2E2640081E27E /* AddFollowerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFollowerViewDelegate.swift; sourceTree = "<group>"; };
+		651C35B922B2E2B20081E27E /* AddFollowerInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFollowerInteractorOutput.swift; sourceTree = "<group>"; };
+		651C35BA22B2E2B20081E27E /* AddFollowerInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFollowerInteractorInput.swift; sourceTree = "<group>"; };
+		651C35BB22B2E2B20081E27E /* AddFollowerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFollowerInteractor.swift; sourceTree = "<group>"; };
+		651C35D022B5937E0081E27E /* CollaboratorsListInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaboratorsListInteractorOutput.swift; sourceTree = "<group>"; };
+		651C35D122B5937E0081E27E /* CollaboratorsListInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaboratorsListInteractorInput.swift; sourceTree = "<group>"; };
+		651C35D222B5937E0081E27E /* CollaboratorsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaboratorsListInteractor.swift; sourceTree = "<group>"; };
+		651C35D822B593A40081E27E /* AddCollaboratorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorPresenter.swift; sourceTree = "<group>"; };
+		651C35D922B593A40081E27E /* AddCollaboratorPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorPresenterInput.swift; sourceTree = "<group>"; };
+		651C35DA22B593A40081E27E /* AddCollaboratorPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorPresenterOutput.swift; sourceTree = "<group>"; };
+		651C35DB22B593A40081E27E /* AddCollaboratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorView.swift; sourceTree = "<group>"; };
+		651C35DC22B593A40081E27E /* AddCollaboratorModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorModuleFactory.swift; sourceTree = "<group>"; };
+		651C35DD22B593A40081E27E /* AddCollaboratorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCollaboratorView.xib; sourceTree = "<group>"; };
+		651C35DE22B593A40081E27E /* AddCollaboratorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorViewDelegate.swift; sourceTree = "<group>"; };
+		651C35E722B593B70081E27E /* AddCollaboratorInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorInteractorOutput.swift; sourceTree = "<group>"; };
+		651C35E822B593B70081E27E /* AddCollaboratorInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorInteractorInput.swift; sourceTree = "<group>"; };
+		651C35E922B593B70081E27E /* AddCollaboratorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorInteractor.swift; sourceTree = "<group>"; };
+		651C35F022B593E40081E27E /* RemoveCollaboratorInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCollaboratorInteractorOutput.swift; sourceTree = "<group>"; };
+		651C35F122B593E40081E27E /* RemoveCollaboratorInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCollaboratorInteractorInput.swift; sourceTree = "<group>"; };
+		651C35F222B593E40081E27E /* RemoveCollaboratorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCollaboratorInteractor.swift; sourceTree = "<group>"; };
+		651C35F622B593EC0081E27E /* RemoveCollaboratorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCollaboratorPresenter.swift; sourceTree = "<group>"; };
+		651C35F722B593EC0081E27E /* RemoveCollaboratorPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCollaboratorPresenterInput.swift; sourceTree = "<group>"; };
+		651C35F822B593EC0081E27E /* RemoveCollaboratorPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCollaboratorPresenterOutput.swift; sourceTree = "<group>"; };
+		651C35F922B593EC0081E27E /* RemoveCollaboratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCollaboratorView.swift; sourceTree = "<group>"; };
+		651C35FA22B593EC0081E27E /* RemoveCollaboratorModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCollaboratorModuleFactory.swift; sourceTree = "<group>"; };
+		651C35FB22B593EC0081E27E /* RemoveCollaboratorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveCollaboratorView.xib; sourceTree = "<group>"; };
+		651C35FC22B593EC0081E27E /* RemoveCollaboratorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCollaboratorViewDelegate.swift; sourceTree = "<group>"; };
+		651C360722B68DEF0081E27E /* AddCollaboratorEditionInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorEditionInteractorOutput.swift; sourceTree = "<group>"; };
+		651C360822B68DEF0081E27E /* AddCollaboratorEditionInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorEditionInteractorInput.swift; sourceTree = "<group>"; };
+		651C360922B68DEF0081E27E /* AddCollaboratorEditionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorEditionInteractor.swift; sourceTree = "<group>"; };
+		651C360D22B68DFB0081E27E /* AddCollaboratorEdition.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCollaboratorEdition.storyboard; sourceTree = "<group>"; };
+		651C360E22B68DFB0081E27E /* AddCollaboratorEditionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorEditionPresenter.swift; sourceTree = "<group>"; };
+		651C360F22B68DFB0081E27E /* AddCollaboratorEditionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorEditionRouter.swift; sourceTree = "<group>"; };
+		651C361022B68DFB0081E27E /* AddCollaboratorEditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorEditionViewController.swift; sourceTree = "<group>"; };
+		651C361122B68DFB0081E27E /* AddCollaboratorEditionPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorEditionPresenterInput.swift; sourceTree = "<group>"; };
+		651C361222B68DFB0081E27E /* AddCollaboratorEditionPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorEditionPresenterOutput.swift; sourceTree = "<group>"; };
+		651C361322B68DFB0081E27E /* AddCollaboratorEditionModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorEditionModuleFactory.swift; sourceTree = "<group>"; };
+		651C361422B68DFB0081E27E /* AddCollaboratorEditionRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollaboratorEditionRouterInput.swift; sourceTree = "<group>"; };
 		65F60B42228481C600AA4456 /* Moblih.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moblih.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F60B45228481C600AA4456 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65F60B4A228481C600AA4456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
@@ -260,7 +411,6 @@
 		65FA77EF22A5800500327925 /* FollowingListPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListPresenterOutput.swift; sourceTree = "<group>"; };
 		65FA77F022A5800500327925 /* FollowingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListViewController.swift; sourceTree = "<group>"; };
 		65FA77F122A5800500327925 /* FollowingListModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListModuleFactory.swift; sourceTree = "<group>"; };
-		65FA77F322A5800500327925 /* FollowingListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListViewDelegate.swift; sourceTree = "<group>"; };
 		65FA77FD22A582C200327925 /* FollowingListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FollowingListStoryboard.storyboard; sourceTree = "<group>"; };
 		65FA77FF22A5846100327925 /* FollowingListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListRouter.swift; sourceTree = "<group>"; };
 		65FA780122A584A400327925 /* FollowingListRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListRouterInput.swift; sourceTree = "<group>"; };
@@ -362,7 +512,7 @@
 		10175B2C22A42EFC00ED09CC /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				10175B1822A42EEE00ED09CC /* AddRepositoryViewController.swift */,
+				10175B1822A42EEE00ED09CC /* AddRepositoryTableViewController.swift */,
 				10175B1A22A42EEE00ED09CC /* AddRepository.storyboard */,
 				10175B2022A42EEF00ED09CC /* AddRepositoryPresenter.swift */,
 				10175B1B22A42EEE00ED09CC /* AddRepositoryPresenterInput.swift */,
@@ -455,8 +605,8 @@
 				102EA0252286EAE80099F5C8 /* LogoutPresenterInput.swift */,
 				102EA0262286EAE80099F5C8 /* LogoutPresenterOutput.swift */,
 				102EA0272286EAE90099F5C8 /* LogoutView.swift */,
-				102EA0282286EAE90099F5C8 /* LogoutModuleFactory.swift */,
 				102EA0292286EAE90099F5C8 /* LogoutView.xib */,
+				102EA0282286EAE90099F5C8 /* LogoutModuleFactory.swift */,
 				102EA02A2286EAE90099F5C8 /* LogoutViewDelegate.swift */,
 			);
 			path = "User Interface";
@@ -498,6 +648,66 @@
 			path = "User Interface";
 			sourceTree = "<group>";
 		};
+		105F478122B6708600FDE4DD /* RepositoryInformationRepository */ = {
+			isa = PBXGroup;
+			children = (
+				105F478222B6709E00FDE4DD /* RepositoryInformationRepository.swift */,
+				105F478422B670A800FDE4DD /* RepositoryInformationRepositoryProtocol.swift */,
+			);
+			path = RepositoryInformationRepository;
+			sourceTree = "<group>";
+		};
+		105F478622B676DD00FDE4DD /* CollaboratorToDelete */ = {
+			isa = PBXGroup;
+			children = (
+				105F478722B676F000FDE4DD /* CollaboratorToDeleteRepository.swift */,
+				105F478922B676FC00FDE4DD /* CollaboratorToDeleteRepositoryInput.swift */,
+			);
+			path = CollaboratorToDelete;
+			sourceTree = "<group>";
+		};
+		10D1178A22B54D4A000BEC73 /* FollowerToDelete */ = {
+			isa = PBXGroup;
+			children = (
+				10D1178D22B54D6B000BEC73 /* FollowerToDeleteRepository.swift */,
+				10D1178F22B54D70000BEC73 /* FollowerToDeleteRepositoryInput.swift */,
+			);
+			path = FollowerToDelete;
+			sourceTree = "<group>";
+		};
+		10D1179122B5512E000BEC73 /* DeleteFollower */ = {
+			isa = PBXGroup;
+			children = (
+				10D1179622B5513B000BEC73 /* DeleteFollowerModuleFactory.swift */,
+				10D117A022B5513F000BEC73 /* User Interface */,
+				10D117A722B55158000BEC73 /* Business Logic */,
+			);
+			path = DeleteFollower;
+			sourceTree = "<group>";
+		};
+		10D117A022B5513F000BEC73 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				10D1179222B5513B000BEC73 /* DeleteFollowerPresenter.swift */,
+				10D1179322B5513B000BEC73 /* DeleteFollowerPresenterInput.swift */,
+				10D1179422B5513B000BEC73 /* DeleteFollowerPresenterOutput.swift */,
+				10D1179522B5513B000BEC73 /* DeleteFollowerView.swift */,
+				10D1179722B5513B000BEC73 /* DeleteFollowerView.xib */,
+				10D1179822B5513B000BEC73 /* DeleteFollowerViewDelegate.swift */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		10D117A722B55158000BEC73 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				10D117A122B55152000BEC73 /* DeleteFollowerInteractorOutput.swift */,
+				10D117A222B55152000BEC73 /* DeleteFollowerInteractorInput.swift */,
+				10D117A322B55152000BEC73 /* DeleteFollowerInteractor.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
 		276ACEF9ECF851B0BFA08FE7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +715,176 @@
 				2FCB275C9AABFF0F8F1FE7C5 /* Pods_MoblihTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		651C35A222B2E2150081E27E /* AddFollower */ = {
+			isa = PBXGroup;
+			children = (
+				651C35A822B2E2640081E27E /* AddFollowerModuleFactory.swift */,
+				651C35B222B2E26E0081E27E /* Business Logic */,
+				651C35A322B2E2320081E27E /* User Interface */,
+			);
+			path = AddFollower;
+			sourceTree = "<group>";
+		};
+		651C35A322B2E2320081E27E /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				651C35A422B2E2640081E27E /* AddFollowerPresenter.swift */,
+				651C35A522B2E2640081E27E /* AddFollowerPresenterInput.swift */,
+				651C35A622B2E2640081E27E /* AddFollowerPresenterOutput.swift */,
+				651C35A722B2E2640081E27E /* AddFollowerView.swift */,
+				651C35A922B2E2640081E27E /* AddFollowerView.xib */,
+				651C35AA22B2E2640081E27E /* AddFollowerViewDelegate.swift */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		651C35B222B2E26E0081E27E /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				651C35B922B2E2B20081E27E /* AddFollowerInteractorOutput.swift */,
+				651C35BA22B2E2B20081E27E /* AddFollowerInteractorInput.swift */,
+				651C35BB22B2E2B20081E27E /* AddFollowerInteractor.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		651C35BF22B593470081E27E /* CollaboratorsList */ = {
+			isa = PBXGroup;
+			children = (
+				10D117AE22B5A1EC000BEC73 /* CollaboratorsListModuleFactory.swift */,
+				651C35CF22B593710081E27E /* Business Logic */,
+				651C35C022B593580081E27E /* User Interface */,
+			);
+			path = CollaboratorsList;
+			sourceTree = "<group>";
+		};
+		651C35C022B593580081E27E /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				10D117AB22B5A1EC000BEC73 /* CollaboratorsListTableViewController.swift */,
+				10D117A822B5A1EC000BEC73 /* CollaboratorsList.storyboard */,
+				10D117A922B5A1EC000BEC73 /* CollaboratorsListPresenter.swift */,
+				10D117AC22B5A1EC000BEC73 /* CollaboratorsListPresenterInput.swift */,
+				10D117AD22B5A1EC000BEC73 /* CollaboratorsListPresenterOutput.swift */,
+				10D117AA22B5A1EC000BEC73 /* CollaboratorsListRouter.swift */,
+				10D117AF22B5A1EC000BEC73 /* CollaboratorsListRouterInput.swift */,
+				105F477F22B6697C00FDE4DD /* CollaboratorsListTableViewCell.swift */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		651C35CF22B593710081E27E /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				651C35D022B5937E0081E27E /* CollaboratorsListInteractorOutput.swift */,
+				651C35D122B5937E0081E27E /* CollaboratorsListInteractorInput.swift */,
+				651C35D222B5937E0081E27E /* CollaboratorsListInteractor.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		651C35D622B593860081E27E /* AddCollaborator */ = {
+			isa = PBXGroup;
+			children = (
+				651C35DC22B593A40081E27E /* AddCollaboratorModuleFactory.swift */,
+				651C35E622B593A90081E27E /* Business Logic */,
+				651C35D722B593900081E27E /* User Interface */,
+			);
+			path = AddCollaborator;
+			sourceTree = "<group>";
+		};
+		651C35D722B593900081E27E /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				651C35D822B593A40081E27E /* AddCollaboratorPresenter.swift */,
+				651C35D922B593A40081E27E /* AddCollaboratorPresenterInput.swift */,
+				651C35DA22B593A40081E27E /* AddCollaboratorPresenterOutput.swift */,
+				651C35DB22B593A40081E27E /* AddCollaboratorView.swift */,
+				651C35DD22B593A40081E27E /* AddCollaboratorView.xib */,
+				651C35DE22B593A40081E27E /* AddCollaboratorViewDelegate.swift */,
+				105F478B22B6860900FDE4DD /* AddCollaboratorRouter.swift */,
+				105F478D22B6860E00FDE4DD /* AddCollaboratorRouterInput.swift */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		651C35E622B593A90081E27E /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				651C35E722B593B70081E27E /* AddCollaboratorInteractorOutput.swift */,
+				651C35E822B593B70081E27E /* AddCollaboratorInteractorInput.swift */,
+				651C35E922B593B70081E27E /* AddCollaboratorInteractor.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		651C35ED22B593BF0081E27E /* RemoveCollaborator */ = {
+			isa = PBXGroup;
+			children = (
+				651C35FA22B593EC0081E27E /* RemoveCollaboratorModuleFactory.swift */,
+				651C35EF22B593DA0081E27E /* Business Logic */,
+				651C35EE22B593D00081E27E /* User Interface */,
+			);
+			path = RemoveCollaborator;
+			sourceTree = "<group>";
+		};
+		651C35EE22B593D00081E27E /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				651C35F622B593EC0081E27E /* RemoveCollaboratorPresenter.swift */,
+				651C35F722B593EC0081E27E /* RemoveCollaboratorPresenterInput.swift */,
+				651C35F822B593EC0081E27E /* RemoveCollaboratorPresenterOutput.swift */,
+				651C35F922B593EC0081E27E /* RemoveCollaboratorView.swift */,
+				651C35FB22B593EC0081E27E /* RemoveCollaboratorView.xib */,
+				651C35FC22B593EC0081E27E /* RemoveCollaboratorViewDelegate.swift */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		651C35EF22B593DA0081E27E /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				651C35F022B593E40081E27E /* RemoveCollaboratorInteractorOutput.swift */,
+				651C35F122B593E40081E27E /* RemoveCollaboratorInteractorInput.swift */,
+				651C35F222B593E40081E27E /* RemoveCollaboratorInteractor.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		651C360422B68DC90081E27E /* AddCollaboratorEdition */ = {
+			isa = PBXGroup;
+			children = (
+				651C361322B68DFB0081E27E /* AddCollaboratorEditionModuleFactory.swift */,
+				651C360622B68DE30081E27E /* Business Logic */,
+				651C360522B68DDC0081E27E /* User Interface */,
+			);
+			path = AddCollaboratorEdition;
+			sourceTree = "<group>";
+		};
+		651C360522B68DDC0081E27E /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				651C360D22B68DFB0081E27E /* AddCollaboratorEdition.storyboard */,
+				651C361022B68DFB0081E27E /* AddCollaboratorEditionViewController.swift */,
+				651C360E22B68DFB0081E27E /* AddCollaboratorEditionPresenter.swift */,
+				651C361122B68DFB0081E27E /* AddCollaboratorEditionPresenterInput.swift */,
+				651C361222B68DFB0081E27E /* AddCollaboratorEditionPresenterOutput.swift */,
+				651C360F22B68DFB0081E27E /* AddCollaboratorEditionRouter.swift */,
+				651C361422B68DFB0081E27E /* AddCollaboratorEditionRouterInput.swift */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		651C360622B68DE30081E27E /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				651C360722B68DEF0081E27E /* AddCollaboratorEditionInteractorOutput.swift */,
+				651C360822B68DEF0081E27E /* AddCollaboratorEditionInteractorInput.swift */,
+				651C360922B68DEF0081E27E /* AddCollaboratorEditionInteractor.swift */,
+			);
+			path = "Business Logic";
 			sourceTree = "<group>";
 		};
 		65F60B39228481C600AA4456 = {
@@ -569,6 +949,12 @@
 		65F60B8222848DDB00AA4456 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				651C360422B68DC90081E27E /* AddCollaboratorEdition */,
+				651C35ED22B593BF0081E27E /* RemoveCollaborator */,
+				651C35D622B593860081E27E /* AddCollaborator */,
+				651C35BF22B593470081E27E /* CollaboratorsList */,
+				10D1179122B5512E000BEC73 /* DeleteFollower */,
+				651C35A222B2E2150081E27E /* AddFollower */,
 				65FA77CD22A57F8100327925 /* FollowersList */,
 				65FA77CC22A57F6700327925 /* FollowingList */,
 				65FA77C622A17B1900327925 /* AddRepository */,
@@ -616,8 +1002,14 @@
 		65F60B9422848DE900AA4456 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				105F478622B676DD00FDE4DD /* CollaboratorToDelete */,
+				105F478122B6708600FDE4DD /* RepositoryInformationRepository */,
+				10D1178A22B54D4A000BEC73 /* FollowerToDelete */,
+				651C35A022AD80750081E27E /* MoblihAPI.swift */,
 				65F60B9B228496DD00AA4456 /* OAuthConfigurationWrapper.swift */,
 				65F60B9522848E2800AA4456 /* AuthenticationRepository.swift */,
+				651C359C22AD7FDA0081E27E /* GithubAPIRepository.swift */,
+				651C359E22AD80290081E27E /* GithubAPIRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -696,7 +1088,6 @@
 				65FA77EE22A5800500327925 /* FollowingListPresenterInput.swift */,
 				65FA77EF22A5800500327925 /* FollowingListPresenterOutput.swift */,
 				65FA77F022A5800500327925 /* FollowingListViewController.swift */,
-				65FA77F322A5800500327925 /* FollowingListViewDelegate.swift */,
 				65FA77FD22A582C200327925 /* FollowingListStoryboard.storyboard */,
 				65FA77FF22A5846100327925 /* FollowingListRouter.swift */,
 				65FA780122A584A400327925 /* FollowingListRouterInput.swift */,
@@ -724,6 +1115,8 @@
 				65FCB6F12289DE3A00D8B07F /* RepositoryInfoPresenterInput.swift */,
 				65FCB6F32289DE4100D8B07F /* RepositoryInfoPresenterOutput.swift */,
 				650220E3228D86D3007B4975 /* RepositoryInformation.storyboard */,
+				10D117B822B5A323000BEC73 /* RepositoryInfoRouter.swift */,
+				10D117BA22B5A328000BEC73 /* RepositoryInfoRouterInput.swift */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -834,8 +1227,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				102EA05C2286FC120099F5C8 /* LoadableView.xib in Resources */,
+				651C360222B593EC0081E27E /* RemoveCollaboratorView.xib in Resources */,
 				102EA06E228711300099F5C8 /* MyRepositories.storyboard in Resources */,
+				651C361522B68DFB0081E27E /* AddCollaboratorEdition.storyboard in Resources */,
 				10175B2422A42EEF00ED09CC /* AddRepository.storyboard in Resources */,
+				10D1179E22B5513B000BEC73 /* DeleteFollowerView.xib in Resources */,
+				651C35E422B593A40081E27E /* AddCollaboratorView.xib in Resources */,
 				6500B7CC22889C560062F25C /* MyRepositoryTableViewCell.xib in Resources */,
 				65F60B50228481C700AA4456 /* LaunchScreen.storyboard in Resources */,
 				10175B0222A4187000ED09CC /* MyProfileDetailsView.xib in Resources */,
@@ -844,10 +1241,12 @@
 				65FA780C22A5997600327925 /* FollowersListTableViewCell.xib in Resources */,
 				10175AE422A40CFE00ED09CC /* TableViewLoader.xib in Resources */,
 				65F60B4D228481C700AA4456 /* Assets.xcassets in Resources */,
+				10D117B022B5A1EC000BEC73 /* CollaboratorsList.storyboard in Resources */,
 				102EA0512286EC2E0099F5C8 /* MyProfile.storyboard in Resources */,
 				65FA77FE22A582C200327925 /* FollowingListStoryboard.storyboard in Resources */,
 				65FA781022A5B34F00327925 /* FollowingListTableViewCell.xib in Resources */,
 				10175AE822A40E2C00ED09CC /* TableViewLoaderTableViewCell.xib in Resources */,
+				651C35B022B2E2640081E27E /* AddFollowerView.xib in Resources */,
 				102EA0302286EAE90099F5C8 /* LogoutView.xib in Resources */,
 				650220E4228D86D3007B4975 /* RepositoryInformation.storyboard in Resources */,
 				65F60B4B228481C600AA4456 /* Authentication.storyboard in Resources */,
@@ -874,6 +1273,8 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Moblih/Pods-Moblih-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ListPlaceholder/ListPlaceholder.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/NBNRequestKit/RequestKit.framework",
 				"${BUILT_PRODUCTS_DIR}/OctoKit.swift/Octokit.framework",
 			);
@@ -882,6 +1283,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ListPlaceholder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RequestKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Octokit.framework",
 			);
@@ -942,18 +1345,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				65FCB6ED2289DE0A00D8B07F /* RepositoryInfoViewController.swift in Sources */,
+				651C359F22AD80290081E27E /* GithubAPIRepositoryProtocol.swift in Sources */,
 				65F60B8E22848DDC00AA4456 /* AuthenticationInteractor.swift in Sources */,
 				65FA77F422A5800500327925 /* FollowingListPresenter.swift in Sources */,
+				651C360A22B68DEF0081E27E /* AddCollaboratorEditionInteractorOutput.swift in Sources */,
 				65FCB6F82289DFED00D8B07F /* RepositoryInfoInteractorInput.swift in Sources */,
+				105F478A22B676FC00FDE4DD /* CollaboratorToDeleteRepositoryInput.swift in Sources */,
+				651C35A122AD80750081E27E /* MoblihAPI.swift in Sources */,
 				65FCB6F42289DE4100D8B07F /* RepositoryInfoPresenterOutput.swift in Sources */,
 				65F60B9322848DDC00AA4456 /* AuthenticationRouterBoundaries.swift in Sources */,
+				105F478522B670A800FDE4DD /* RepositoryInformationRepositoryProtocol.swift in Sources */,
+				651C361A22B68DFB0081E27E /* AddCollaboratorEditionPresenterOutput.swift in Sources */,
 				65F60B7F22848A8B00AA4456 /* KeychainConfiguration.swift in Sources */,
+				651C360B22B68DEF0081E27E /* AddCollaboratorEditionInteractorInput.swift in Sources */,
 				6500B7CB22889C560062F25C /* MyRepositoryTableViewCell.swift in Sources */,
 				102EA02E2286EAE90099F5C8 /* LogoutView.swift in Sources */,
 				10175AF422A4185E00ED09CC /* MyProfileDetailsInteractor.swift in Sources */,
+				651C361822B68DFB0081E27E /* AddCollaboratorEditionViewController.swift in Sources */,
+				651C35BD22B2E2B20081E27E /* AddFollowerInteractorInput.swift in Sources */,
 				10175B0322A4187000ED09CC /* MyProfileDetailsViewDelegate.swift in Sources */,
 				10175AE722A40E2C00ED09CC /* TableViewLoaderTableViewCell.swift in Sources */,
+				651C35AD22B2E2640081E27E /* AddFollowerPresenterOutput.swift in Sources */,
+				651C35FE22B593EC0081E27E /* RemoveCollaboratorPresenterInput.swift in Sources */,
 				102EA0312286EAE90099F5C8 /* LogoutViewDelegate.swift in Sources */,
+				10D117B222B5A1EC000BEC73 /* CollaboratorsListRouter.swift in Sources */,
+				651C35E522B593A40081E27E /* AddCollaboratorViewDelegate.swift in Sources */,
+				651C35F422B593E40081E27E /* RemoveCollaboratorInteractorInput.swift in Sources */,
+				651C35E222B593A40081E27E /* AddCollaboratorView.swift in Sources */,
 				102EA0632287111E0099F5C8 /* MyRepositoriesInteractorInput.swift in Sources */,
 				102EA0522286EC2E0099F5C8 /* MyProfilePresenter.swift in Sources */,
 				65F60B9222848DDC00AA4456 /* AuthenticationViewController.swift in Sources */,
@@ -965,49 +1383,81 @@
 				102EA0142286E9F40099F5C8 /* LogoutInteractor.swift in Sources */,
 				65F60B8122848A8B00AA4456 /* KeychainWrapper.swift in Sources */,
 				102EA071228711300099F5C8 /* MyRepositoriesViewController.swift in Sources */,
+				651C360C22B68DEF0081E27E /* AddCollaboratorEditionInteractor.swift in Sources */,
+				651C35AE22B2E2640081E27E /* AddFollowerView.swift in Sources */,
 				65FA780B22A5997600327925 /* FollowersListTableViewCell.swift in Sources */,
 				65FA780422A587D900327925 /* FollowersListRouter.swift in Sources */,
 				65FA77E922A57FF400327925 /* FollowingListInteractorOutput.swift in Sources */,
 				65FCB6FC2289E04C00D8B07F /* RepositoryInfoModuleFactory.swift in Sources */,
+				651C35DF22B593A40081E27E /* AddCollaboratorPresenter.swift in Sources */,
+				105F478E22B6860E00FDE4DD /* AddCollaboratorRouterInput.swift in Sources */,
+				10D1179D22B5513B000BEC73 /* DeleteFollowerModuleFactory.swift in Sources */,
 				10175B2722A42EEF00ED09CC /* AddRepositoryInteractorInput.swift in Sources */,
 				10175B0022A4187000ED09CC /* MyProfileDetailsView.swift in Sources */,
 				102EA072228711300099F5C8 /* MyRepositoriesPresenterInput.swift in Sources */,
 				102EA02C2286EAE90099F5C8 /* LogoutPresenterInput.swift in Sources */,
+				651C360022B593EC0081E27E /* RemoveCollaboratorView.swift in Sources */,
+				651C361622B68DFB0081E27E /* AddCollaboratorEditionPresenter.swift in Sources */,
 				102EA05A2286FA870099F5C8 /* Loadable.swift in Sources */,
 				65FCB6F22289DE3A00D8B07F /* RepositoryInfoPresenterInput.swift in Sources */,
+				651C35AC22B2E2640081E27E /* AddFollowerPresenterInput.swift in Sources */,
+				10D1179F22B5513B000BEC73 /* DeleteFollowerViewDelegate.swift in Sources */,
 				65F60B8F22848DDC00AA4456 /* AuthenticationPresenter.swift in Sources */,
+				105F478C22B6860900FDE4DD /* AddCollaboratorRouter.swift in Sources */,
 				65FA780222A584A400327925 /* FollowingListRouterInput.swift in Sources */,
 				102EA070228711300099F5C8 /* MyRepositoriesRouter.swift in Sources */,
 				102EA0532286EC2E0099F5C8 /* MyProfileRouter.swift in Sources */,
+				651C361B22B68DFB0081E27E /* AddCollaboratorEditionModuleFactory.swift in Sources */,
 				65FA77DE22A57FCE00327925 /* FollowersListPresenterInput.swift in Sources */,
 				10175B2322A42EEF00ED09CC /* AddRepositoryInteractor.swift in Sources */,
 				65F60B9822848F9800AA4456 /* UIView+AutoLayout.swift in Sources */,
+				10D117A622B55153000BEC73 /* DeleteFollowerInteractor.swift in Sources */,
 				65FA77E322A57FCE00327925 /* FollowersListViewDelegate.swift in Sources */,
 				10175AEC22A417E700ED09CC /* ViewLoadable.swift in Sources */,
 				102EA02F2286EAE90099F5C8 /* LogoutModuleFactory.swift in Sources */,
+				651C35EB22B593B70081E27E /* AddCollaboratorInteractorInput.swift in Sources */,
 				10175B2522A42EEF00ED09CC /* AddRepositoryPresenterInput.swift in Sources */,
 				65FA77DD22A57FCE00327925 /* FollowersListPresenter.swift in Sources */,
+				10D1179B22B5513B000BEC73 /* DeleteFollowerPresenterOutput.swift in Sources */,
 				10175AFD22A4187000ED09CC /* MyProfileDetailsPresenter.swift in Sources */,
 				10175AF322A4185E00ED09CC /* MyProfileDetailsInteractorInput.swift in Sources */,
 				10175AF222A4185E00ED09CC /* MyProfileDetailsInteractorOutput.swift in Sources */,
+				651C361C22B68DFB0081E27E /* AddCollaboratorEditionRouterInput.swift in Sources */,
+				651C359D22AD7FDA0081E27E /* GithubAPIRepository.swift in Sources */,
 				65FCB6F02289DE3200D8B07F /* RepositoryInfoPresenter.swift in Sources */,
 				65F60B9A2284914B00AA4456 /* AuthenticationModuleFactory.swift in Sources */,
+				10D1179022B54D70000BEC73 /* FollowerToDeleteRepositoryInput.swift in Sources */,
+				651C361722B68DFB0081E27E /* AddCollaboratorEditionRouter.swift in Sources */,
 				10175B2922A42EEF00ED09CC /* AddRepositoryPresenterOutput.swift in Sources */,
 				102EA0562286EC2E0099F5C8 /* MyProfilePresenterOutput.swift in Sources */,
+				651C35EC22B593B70081E27E /* AddCollaboratorInteractor.swift in Sources */,
 				102EA006228631A30099F5C8 /* MyTabBarController.swift in Sources */,
+				10D117B122B5A1EC000BEC73 /* CollaboratorsListPresenter.swift in Sources */,
+				651C35F522B593E40081E27E /* RemoveCollaboratorInteractor.swift in Sources */,
+				651C360122B593EC0081E27E /* RemoveCollaboratorModuleFactory.swift in Sources */,
 				65FA77F522A5800500327925 /* FollowingListPresenterInput.swift in Sources */,
 				102EA0382286EB370099F5C8 /* MyProfileInteractor.swift in Sources */,
 				10175B2622A42EEF00ED09CC /* AddRepositoryInteractorOutput.swift in Sources */,
+				651C35E022B593A40081E27E /* AddCollaboratorPresenterInput.swift in Sources */,
 				65F60B9C228496DD00AA4456 /* OAuthConfigurationWrapper.swift in Sources */,
+				651C35E322B593A40081E27E /* AddCollaboratorModuleFactory.swift in Sources */,
 				65FCB6F62289DFE700D8B07F /* RepositoryInfoInteractor.swift in Sources */,
 				10175AEA22A40EF900ED09CC /* UITableView+Extensions.swift in Sources */,
 				65FA77EA22A57FF400327925 /* FollowingListInteractorInput.swift in Sources */,
+				10D1179A22B5513B000BEC73 /* DeleteFollowerPresenterInput.swift in Sources */,
+				10D117B622B5A1EC000BEC73 /* CollaboratorsListModuleFactory.swift in Sources */,
+				651C35FD22B593EC0081E27E /* RemoveCollaboratorPresenter.swift in Sources */,
 				102EA0132286E9F40099F5C8 /* LogoutInteractorInput.swift in Sources */,
 				65FA77CA22A17B4E00327925 /* AddRepositoryModuleFactory.swift in Sources */,
 				65FA77D222A57F9E00327925 /* FollowersListInteractorInput.swift in Sources */,
 				102EA0122286E9F40099F5C8 /* LogoutInteractorOutput.swift in Sources */,
+				105F478822B676F000FDE4DD /* CollaboratorToDeleteRepository.swift in Sources */,
+				651C35AB22B2E2640081E27E /* AddFollowerPresenter.swift in Sources */,
+				651C35EA22B593B70081E27E /* AddCollaboratorInteractorOutput.swift in Sources */,
 				10175AE222A40CE200ED09CC /* TableViewLoader.swift in Sources */,
+				651C35BE22B2E2B20081E27E /* AddFollowerInteractor.swift in Sources */,
 				65FA77D122A57F9E00327925 /* FollowersListInteractorOutput.swift in Sources */,
+				651C35AF22B2E2640081E27E /* AddFollowerModuleFactory.swift in Sources */,
 				65FA77DF22A57FCE00327925 /* FollowersListPresenterOutput.swift in Sources */,
 				102EA0542286EC2E0099F5C8 /* MyProfileViewController.swift in Sources */,
 				65FCB6FA2289DFF600D8B07F /* RepositoryInfoInteractorOutput.swift in Sources */,
@@ -1015,36 +1465,58 @@
 				65FA77F722A5800500327925 /* FollowingListViewController.swift in Sources */,
 				102EA02D2286EAE90099F5C8 /* LogoutPresenterOutput.swift in Sources */,
 				102EA06F228711300099F5C8 /* MyRepositoriesPresenter.swift in Sources */,
+				651C361922B68DFB0081E27E /* AddCollaboratorEditionPresenterInput.swift in Sources */,
+				651C35D422B5937E0081E27E /* CollaboratorsListInteractorInput.swift in Sources */,
 				65F60B9122848DDC00AA4456 /* AuthenticationRouter.swift in Sources */,
 				102EA0372286EB370099F5C8 /* MyProfileInteractorInput.swift in Sources */,
+				651C35D322B5937E0081E27E /* CollaboratorsListInteractorOutput.swift in Sources */,
+				651C35D522B5937E0081E27E /* CollaboratorsListInteractor.swift in Sources */,
 				65FA780622A587DF00327925 /* FollowersListRouterInput.swift in Sources */,
+				10D117B722B5A1EC000BEC73 /* CollaboratorsListRouterInput.swift in Sources */,
 				65F60B46228481C600AA4456 /* AppDelegate.swift in Sources */,
+				651C360322B593EC0081E27E /* RemoveCollaboratorViewDelegate.swift in Sources */,
 				65FA77E122A57FCE00327925 /* FollowersListModuleFactory.swift in Sources */,
 				102EA0642287111E0099F5C8 /* MyRepositoriesInteractor.swift in Sources */,
-				10175B2222A42EEF00ED09CC /* AddRepositoryViewController.swift in Sources */,
+				10175B2222A42EEF00ED09CC /* AddRepositoryTableViewController.swift in Sources */,
+				105F478022B6697C00FDE4DD /* CollaboratorsListTableViewCell.swift in Sources */,
 				102E9FE32285F2BF0099F5C8 /* UIViewController+extensions.swift in Sources */,
 				102EA0572286EC2E0099F5C8 /* MyProfileModuleFactory.swift in Sources */,
 				102EA074228711300099F5C8 /* MyRepositoriesModuleFactory.swift in Sources */,
+				651C35B122B2E2640081E27E /* AddFollowerViewDelegate.swift in Sources */,
 				65FA77E022A57FCE00327925 /* FollowersListViewController.swift in Sources */,
+				651C35F322B593E40081E27E /* RemoveCollaboratorInteractorOutput.swift in Sources */,
 				102EA0082286323A0099F5C8 /* AppModuleFactory.swift in Sources */,
 				10175B2A22A42EEF00ED09CC /* AddRepositoryPresenter.swift in Sources */,
+				10D117BB22B5A328000BEC73 /* RepositoryInfoRouterInput.swift in Sources */,
 				65FA77D322A57F9E00327925 /* FollowersListInteractor.swift in Sources */,
 				65F60B9622848E2800AA4456 /* AuthenticationRepository.swift in Sources */,
 				10175AFF22A4187000ED09CC /* MyProfileDetailsPresenterOutput.swift in Sources */,
 				65F60B9022848DDC00AA4456 /* AuthenticationPresenterBoundaries.swift in Sources */,
 				10175AFE22A4187000ED09CC /* MyProfileDetailsPresenterInput.swift in Sources */,
+				105F478322B6709E00FDE4DD /* RepositoryInformationRepository.swift in Sources */,
+				10D117A522B55153000BEC73 /* DeleteFollowerInteractorInput.swift in Sources */,
 				1027BF812288CBB700780457 /* Collection+Extensions.swift in Sources */,
 				102EA02B2286EAE90099F5C8 /* LogoutPresenter.swift in Sources */,
 				102EA0622287111E0099F5C8 /* MyRepositoriesInteractorOutput.swift in Sources */,
 				65FA780022A5846100327925 /* FollowingListRouter.swift in Sources */,
+				10D117B922B5A323000BEC73 /* RepositoryInfoRouter.swift in Sources */,
 				102E9FE5228622030099F5C8 /* AppRouter.swift in Sources */,
+				10D1179922B5513B000BEC73 /* DeleteFollowerPresenter.swift in Sources */,
 				102EA0582286EC2E0099F5C8 /* MyProfileRouterInput.swift in Sources */,
+				10D117B322B5A1EC000BEC73 /* CollaboratorsListTableViewController.swift in Sources */,
 				65FA77EB22A57FF400327925 /* FollowingListInteractor.swift in Sources */,
+				651C35E122B593A40081E27E /* AddCollaboratorPresenterOutput.swift in Sources */,
+				10D1178E22B54D6B000BEC73 /* FollowerToDeleteRepository.swift in Sources */,
 				65FA77F622A5800500327925 /* FollowingListPresenterOutput.swift in Sources */,
+				10D117B522B5A1EC000BEC73 /* CollaboratorsListPresenterOutput.swift in Sources */,
 				65FA780F22A5B34F00327925 /* FollowingListTableViewCell.swift in Sources */,
 				102EA073228711300099F5C8 /* MyRepositoriesPresenterOutput.swift in Sources */,
+				10D1179C22B5513B000BEC73 /* DeleteFollowerView.swift in Sources */,
 				10175B2B22A42EEF00ED09CC /* AddRepositoryRouter.swift in Sources */,
-				65FA77FA22A5800500327925 /* FollowingListViewDelegate.swift in Sources */,
+				10D117B422B5A1EC000BEC73 /* CollaboratorsListPresenterInput.swift in Sources */,
+				10D117A422B55153000BEC73 /* DeleteFollowerInteractorOutput.swift in Sources */,
+				651C35BC22B2E2B20081E27E /* AddFollowerInteractorOutput.swift in Sources */,
+				651C35FF22B593EC0081E27E /* RemoveCollaboratorPresenterOutput.swift in Sources */,
 				65FA77F822A5800500327925 /* FollowingListModuleFactory.swift in Sources */,
 				65F60B8022848A8B00AA4456 /* KeychainPasswordItem.swift in Sources */,
 			);

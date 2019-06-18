@@ -15,6 +15,7 @@ class MyProfileInteractor {
     private let oauthConfigurationWrapper: OAuthConfigurationWrapperProtocol
     private let keychainWrapper: KeychainWrapperInput
     weak var output: MyProfileInteractorOutput?
+    private let repositoryInformationRepository: RepositoryInformationRepositoryProtocol
     private var repositories: [MyProfileStarsItem] = []
 
     private var isNetworkErrorOccured = false
@@ -22,9 +23,11 @@ class MyProfileInteractor {
     // MARK: - Lifecycle
 
     init(oauthConfigurationWrapper: OAuthConfigurationWrapperProtocol,
-         keychainWrapper: KeychainWrapperInput) {
+         keychainWrapper: KeychainWrapperInput,
+         repositoryInformationRepository: RepositoryInformationRepositoryProtocol) {
         self.oauthConfigurationWrapper = oauthConfigurationWrapper
         self.keychainWrapper = keychainWrapper
+        self.repositoryInformationRepository = repositoryInformationRepository
     }
 
     private func handleNetworkError() {
@@ -62,7 +65,7 @@ class MyProfileInteractor {
                     }
                     return MyProfileStarsItem(id: id,
                                               name: name,
-                                              description: $0.repositoryDescription,
+                                              description: $0.description,
                                               isPrivate: $0.isPrivate ?? false,
                                               ownerName: $0.owner?.login,
                                               ownerAvatarData: ownerAvatarData,
@@ -126,6 +129,13 @@ extension MyProfileInteractor: MyProfileInteractorInput {
 
     func refresh() {
         retrieveMyStars()
+    }
+    
+    func prepareRepositoryInformation(at index: Int, forCategoryIndex categoryIndex: Int) {
+        guard let repository = repositories[safe: index] else { return }
+        repositoryInformationRepository.clear(success: nil, failure: nil)
+        repositoryInformationRepository.save(owner: repository.ownerName, name: repository.name, success: nil, failure: nil)
+        output?.routeToRepositoryInformation()
     }
 }
 

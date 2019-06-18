@@ -1,24 +1,43 @@
 PODS:
   - ListPlaceholder (1.4)
+  - MaterialComponents/AnimationTiming (76.1.2)
+  - MaterialComponents/Palettes (76.1.2)
+  - MaterialComponents/private/Application (76.1.2)
+  - MaterialComponents/private/Math (76.1.2)
+  - MaterialComponents/TextFields (76.1.2):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Palettes
+    - MaterialComponents/private/Math
+    - MaterialComponents/Typography
+    - MDFInternationalization
+  - MaterialComponents/Typography (76.1.2):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (2.0.0)
   - NBNRequestKit (2.2.0)
   - OctoKit.swift (0.8.0):
     - NBNRequestKit (~> 2.0)
 
 DEPENDENCIES:
-  - ListPlaceholder
-  - OctoKit.swift
+  - ListPlaceholder (= 1.4)
+  - MaterialComponents/TextFields (= 76.1.2)
+  - OctoKit.swift (= 0.8.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ListPlaceholder
+    - MaterialComponents
+    - MDFInternationalization
     - NBNRequestKit
     - OctoKit.swift
 
 SPEC CHECKSUMS:
   ListPlaceholder: 08ddaddf67520a20fc52cf37160fb56aa64d071d
+  MaterialComponents: 1aef341d47fbaed37ddb5163a01af94cb6da8506
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   NBNRequestKit: 30c39d8e23e94f935bfc2a25789c44e4a6e1bfdd
   OctoKit.swift: 2f51efbf888997fc625b91894777e76e9142d95b
 
-PODFILE CHECKSUM: c5d91091aed282e0825ac63a2d36fb656be5a8c0
+PODFILE CHECKSUM: 648f8f134cd47a1698e380c616984596263174ab
 
 COCOAPODS: 1.6.1

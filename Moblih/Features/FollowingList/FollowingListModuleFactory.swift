@@ -11,23 +11,32 @@ import UIKit
 
 class FollowingListModuleFactory {
 
-  func makeView(withDelegate delegate: FollowingListViewDelegate? = nil) -> FollowingListViewController? {
+  func makeView() -> FollowingListViewController? {
     
     let storyboard = UIStoryboard(name: "FollowingListStoryboard", bundle: nil)
     let view = storyboard.instantiateViewController(withIdentifier: "FollowingListViewController") as? FollowingListViewController
     
     
-    let oauthConfigurationWrapper = OAuthConfigurationWrapper()
+    let moblihAPI = MoblihAPI()
     let keychainWrapper = KeychainWrapper()
-    let interactor = FollowingListInteractor(oauthConfigurationWrapper: oauthConfigurationWrapper, keychainWrapper: keychainWrapper)
+    let addFollowerModuleFactory = AddFollowerModuleFactory()
+    let deleteFollowerModuleFactory = DeleteFollowerModuleFactory()
+    let githubAPIRepository = GithubAPIRepository(api: moblihAPI,
+                                                  keychainWrapper: keychainWrapper)
+    let interactor = FollowingListInteractor(githubAPIRepository: githubAPIRepository,
+                                             followerToDeleteRepository: FollowerToDeleteRepository.shared)
     let router = FollowingListRouter()
     let presenter = FollowingListPresenter(interactor: interactor, router: router)
     
     interactor.output = presenter
     view?.presenter = presenter
+    view?.addFollowerModuleFactory = addFollowerModuleFactory
+    view?.deleteFollowerModuleFactory = deleteFollowerModuleFactory
     presenter.output = view
+    addFollowerModuleFactory.delegate = view
+    deleteFollowerModuleFactory.delegate = view
     router.viewController = view
-    
+
     return view
   }
 }

@@ -13,6 +13,7 @@ open class AddRepositoryRouter {
   // MARK: - Property
 
   public weak var viewController: UIViewController?
+    public weak var delegate: AddRepositoryTableViewControllerDelegate?
 
   // MARK: - Lifecycle
 
@@ -23,4 +24,8 @@ open class AddRepositoryRouter {
 
 extension AddRepositoryRouter: AddRepositoryRouterInput {
 
+    public func routeToMyRepositories() {
+        delegate?.addRepositoryTableViewControllerDidFinish()
+        viewController?.navigationController?.popViewController(animated: true)
+    }
 }

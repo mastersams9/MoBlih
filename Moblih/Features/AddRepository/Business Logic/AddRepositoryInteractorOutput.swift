@@ -9,5 +9,18 @@
 import Foundation
 
 public protocol AddRepositoryInteractorOutput: class {
-
+    func notifyLoading()
+    func setDefaultValues()
+    func notifyEmptyNameError()
+    func notifyCreationSuccess()
+    func notifyNetworkError()
+    func notifyServerError()
+    func notifyRepositoryAlreadyExistsError()
+    func notifyNoData()
+    func enablePrivate()
+    func disablePrivate()
+    func enableAddReadme()
+    func disableAddReadme()
+    func updateName(_ name: String)
+    func routeToMyRepositories()
 }

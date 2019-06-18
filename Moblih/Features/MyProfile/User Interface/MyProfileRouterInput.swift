@@ -13,4 +13,5 @@ public protocol MyProfileRouterInput {
     func routeToAuthentication()
     func routeToFollowingView()
     func routeToFollowersView()
+    func routeToRepositoryInformations()
 }

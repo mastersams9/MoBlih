@@ -15,6 +15,7 @@ public protocol MyProfileInteractorInput {
     func prepareFollowingView()
     func prepareFollowersView()
     func prepareLogout()
+    func prepareRepositoryInformation(at index: Int, forCategoryIndex categoryIndex: Int)
     func refresh()
     func handleNetworkError(on category: Category)
     func quit()

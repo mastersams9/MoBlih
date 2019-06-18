@@ -154,11 +154,15 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ListPlaceholder/ListPlaceholder.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NBNRequestKit/RequestKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OctoKit.swift/Octokit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ListPlaceholder/ListPlaceholder.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NBNRequestKit/RequestKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OctoKit.swift/Octokit.framework"
 fi

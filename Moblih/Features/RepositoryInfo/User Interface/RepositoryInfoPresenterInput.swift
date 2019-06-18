@@ -11,5 +11,7 @@ import Foundation
 
 protocol RepositoryInfoPresenterInput {
     func viewDidLoad()
-
+    func refresherControlDidTriggerRefresh()
+    func refresherAttributedTitle() -> NSAttributedString
+    func manageCollaboratorsDidTouchUpInside()
 }

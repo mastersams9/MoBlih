@@ -45,6 +45,10 @@ extension MyRepositoriesPresenter: MyRepositoriesPresenterInput {
     func refresherAttributedTitle() -> NSAttributedString {
         return NSAttributedString(string: "Loading...")
     }
+
+    func addRepositoryTableViewControllerDidFinish() {
+        interactor.refresh()
+    }
     
     func refresherControlDidTriggerRefresh() {
         interactor.refresh()
@@ -112,8 +116,8 @@ extension MyRepositoriesPresenter: MyRepositoriesInteractorOutput {
         router.routeToAddingRepository()
     }
     
-    func routeToRepositoryInformation(with id: Int) {
-        router.routeToRepositoryInformations(with: id)
+    func routeToRepositoryInformation() {
+        router.routeToRepositoryInformations()
     }
 }
 

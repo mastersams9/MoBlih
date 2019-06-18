@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MyProfilePresenterInput {
-    func viewDidLoad()
+    func viewWillAppear()
     func refresherAttributedTitle() -> NSAttributedString
     func refresherControlDidTriggerRefresh()
     func logoutViewIsRequesting()
@@ -21,4 +21,5 @@ protocol MyProfilePresenterInput {
     func myProfileDetailsViewDidTriggerNetworkError()
     func myProfileDetailsFollowersButtonDidTouchUp()
     func myProfileDetailsFollowingButtonDidTouchUp()
+    func didSelectRowAt(indexPath: IndexPath)
 }

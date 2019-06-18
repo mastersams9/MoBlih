@@ -18,8 +18,12 @@ struct AuthenticationModuleFactory {
         let authenticationViewController = storyboard.instantiateViewController(withIdentifier: "AuthenticationViewController") as? AuthenticationViewController
         let repository = AuthenticationRepository(viewController: authenticationViewController)
         let keychainWrapper = KeychainWrapper()
+        let moblihAPI = MoblihAPI()
+        let githubAPIRepository = GithubAPIRepository(api: moblihAPI,
+                                                      keychainWrapper: keychainWrapper)
         let interactor = AuthenticationInteractor(repository: repository,
                                                   oauthConfigurationWrapper: oauthConfigurationWrapper,
+                                                  githubAPIRepository: githubAPIRepository,
                                                   keychainWrapper: keychainWrapper)
         let router = AuthenticationRouter()
         let presenter = AuthenticationPresenter(interactor: interactor, router: router)

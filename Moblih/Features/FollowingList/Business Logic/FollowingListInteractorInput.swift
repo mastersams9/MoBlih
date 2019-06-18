@@ -13,7 +13,10 @@ public protocol FollowingListInteractorInput {
     var output: FollowingListInteractorOutput? { get set }
     
     func retrieve()
+    func refresh()
+    func refreshAfterDelete()
     func numberOfCategories() -> Int
     func numberOfItems(atCategoryIndex categoryIndex: Int) -> Int
     func item(at index: Int, forCategoryIndex categoryIndex: Int) -> FollowingItemProtocol?
+    func prepareDelete(at index: Int, forCategoryIndex categoryIndex: Int)
 }

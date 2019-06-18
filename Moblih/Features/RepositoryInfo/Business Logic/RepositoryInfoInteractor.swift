@@ -12,71 +12,107 @@ class RepositoryInfoInteractor {
     // MARK: - Property
     
     weak var output: RepositoryInfoInteractorOutput?
-    private let id: Int
-    private let oauthConfigurationWrapper: OAuthConfigurationWrapperProtocol
-    private let keychainWrapper: KeychainWrapperInput
-    private var repositories = [RepositoryItem]()
+    private let githubAPIRepository: GithubAPIRepositoryProtocol
+    private let repositoryInformationRepository: RepositoryInformationRepositoryProtocol
+    private var repository: RepositoryItem?
     
-    init(oauthConfigurationWrapper: OAuthConfigurationWrapperProtocol,
-         keychainWrapper: KeychainWrapperInput,
-         id: Int) {
-        self.oauthConfigurationWrapper = oauthConfigurationWrapper
-        self.keychainWrapper = keychainWrapper
-        self.id = id
-    }
-
     // MARK: - Lifecycle
     
+    init(githubAPIRepository: GithubAPIRepositoryProtocol,
+         repositoryInformationRepository: RepositoryInformationRepositoryProtocol) {
+        self.githubAPIRepository = githubAPIRepository
+        self.repositoryInformationRepository = repositoryInformationRepository
+    }
+    
+    // MARK: - Lifecycle
+    
+    private func checkPermissions(for repository: RepositoryItem) {
+        githubAPIRepository.retrieveUserInformations(success: { [weak self] user in
+            if user.id == repository.ownerId {
+                self?.output?.enableManageCollaboratorsEdition()
+                return
+            }
+            
+            guard let owner = repository.ownerName,
+                let username = user.login else { return }
+            
+            self?.githubAPIRepository.retrieveCollaboratorPermission(owner: owner,
+                                                                     repositoryName: repository.name,
+                                                                     username: username,
+                                                                     success: { [weak self] permission in
+                                                                        if permission.permission == .admin {
+                                                                            self?.output?.enableManageCollaboratorsEdition()
+                                                                        }
+                }, failure: nil)
+            }, failure: nil)
+    }
+    
+    private func retrieveRepo(owner: String, repoName: String) {
+        githubAPIRepository.retrieveRepository(owner: owner, repositoryName: repoName, success: { [weak self] repositoryResponse in
+            guard let name = repositoryResponse.name else {
+                return
+            }
+            
+            guard let id =  repositoryResponse.id else {
+                return
+            }
+            
+            var ownerAvatarData: Data? = nil
+            if let urlString = repositoryResponse.owner?.avatarURL, let url = URL(string: urlString) {
+                ownerAvatarData = try? Data(contentsOf: url)
+            }
+            let repository = RepositoryItem(id: id,
+                                              name: name,
+                                              description: repositoryResponse.description,
+                                              isPrivate: repositoryResponse.isPrivate ?? false,
+                                              ownerId: repositoryResponse.owner?.id,
+                                              ownerName: repositoryResponse.owner?.login,
+                                              ownerAvatarData: ownerAvatarData,
+                                              lastUpdatedDate: repositoryResponse.lastPush,
+                                              starCount: repositoryResponse.stargazersCount ?? 0,
+                                              watchersCount: repositoryResponse.watchersCount ?? 0,
+                                              defaultBranch: repositoryResponse.defaultBranch)
+            self?.repository = repository
+            self?.checkPermissions(for: repository)
+            self?.output?.notifySuccess(repository: repository)
+            }, failure: { [weak self] error in
+                                                switch error {
+                                                case .network:
+                                                    self?.output?.notifyNetworkError()
+                                                case .noData:
+                                                    self?.output?.notifyNoDataError()
+                                                default:
+                                                    self?.output?.notifyServerError()
+                                                }
+        })
+    }
 }
 
 // MARK: - MyRepositoriesInteractorInput
 
 extension RepositoryInfoInteractor: RepositoryInfoInteractorInput {
+    func refresh() {
+        retrieve()
+    }
+    
     func retrieve() {
         output?.notifyLoading()
-        guard let accesstoken = try? self.keychainWrapper.findPassword() else {
-            output?.notifyServerError()
-            return
-        }
+        output?.disableManageCollaboratorsEdition()
         
-        self.oauthConfigurationWrapper.retrieveMyRepositories(with: accesstoken, success: { [weak self] repositoriesResponse in
-            DispatchQueue.global().async {
-                self?.repositories = repositoriesResponse.compactMap {
-                    // On supprime les repo qui n'ont pas de nom.
-                    guard let name = $0.name else {
-                        return nil
-                    }
-                    
-                    guard let id =  $0.id else {
-                        return nil
-                    }
-                    
-                    var ownerAvatarData: Data? = nil
-                    if let urlString = $0.owner?.avatarURL, let url = URL(string: urlString) {
-                        ownerAvatarData = try? Data(contentsOf: url)
-                    }
-                    return RepositoryItem(id: id,
-                                          name: name,
-                                          description: $0.repositoryDescription,
-                                          isPrivate: $0.isPrivate ?? false,
-                                          ownerName: $0.owner?.login,
-                                          ownerAvatarData: ownerAvatarData,
-                                          lastUpdatedDate: $0.lastPush,
-                                          starCount: 42)
-                }
-                DispatchQueue.main.async {
-                    guard let repository = self?.repositories.filter({ $0.id == self?.id }).first else {
-                        self?.output?.notifyNoDataError()
-                        return
-                    }
-                    self?.output?.notifySuccess(repository: repository)
-                }
-            }
-        }) { [weak self] error in
-            if case let oauthConfigError = error as OAuthConfigurationWrapperError, oauthConfigError == .network {
-                self?.output?.notifyNetworkError()
-                return
-            }
+        repositoryInformationRepository.get(success: { [weak self] repoInfoResponse in
+            guard let owner = repoInfoResponse.owner, let repoName = repoInfoResponse.name else { return }
+            self?.retrieveRepo(owner: owner, repoName: repoName)
+        }) { [weak self] _ in
+            self?.output?.notifyServerError()
+        }
+    }
+    
+    func prepareManageCollaborators() {
+        repositoryInformationRepository.save(owner: repository?.ownerName,
+                                             name: repository?.name,
+                                             success: { [weak self] in
+                                                self?.output?.routeToManageCollaborators()
+        }) { [weak self] _ in
             self?.output?.notifyServerError()
         }
     }
@@ -87,8 +123,11 @@ private struct RepositoryItem: RepositoryInfoRepositoryItemProtocol {
     var name: String
     var description: String?
     var isPrivate: Bool
+    var ownerId: Int?
     var ownerName: String?
     var ownerAvatarData: Data?
     var lastUpdatedDate: Date?
     var starCount: Int
+    var watchersCount: Int
+    var defaultBranch: String?
 }

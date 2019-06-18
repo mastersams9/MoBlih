@@ -79,10 +79,10 @@ extension MyProfileDetailsPresenter: MyProfileDetailsInteractorOutput {
             ownerImage = ownerImageOpt
         }
 
-        let publicRepo = userProfile.numberOfPublicRepos ?? 0
-        let privateRepo = userProfile.numberOfPrivateRepos ?? 0
+        let followers = userProfile.followers
+        let followings = userProfile.followings
 
-        let userDataModel = MyProfileDetailsViewModel(image: ownerImage, login: userProfile.login, name: userProfile.name ?? "Empty name" , company: userProfile.company ?? "No company" , numberOfRepositories: String(publicRepo + privateRepo))
+        let userDataModel = MyProfileDetailsViewModel(image: ownerImage, login: userProfile.login, name: userProfile.name ?? "Empty name" , company: userProfile.company ?? "No company" , numberOfRepositories: String(userProfile.numberOfRepos), followers: "\(followers)", followings: "\(followings)")
         output?.stopLoader()
         output?.displayProfileInformation(userDataModel)
         output?.delegateSuccess()
@@ -98,4 +98,6 @@ private struct MyProfileDetailsViewModel: MyProfileDetailsViewModelProtocol {
     var name: String
     var company: String
     var numberOfRepositories: String
+    var followers: String
+    var followings: String
 }

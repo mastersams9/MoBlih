@@ -11,50 +11,50 @@ import UIKit
 
 final class FollowersListPresenter {
 
-  // MARK: - Property
+    // MARK: - Property
 
-  weak var output: FollowersListPresenterOutput?
-  private var interactor: FollowersListInteractorInput
+    weak var output: FollowersListPresenterOutput?
+    private var interactor: FollowersListInteractorInput
     private var router: FollowersListRouterInput
 
-  // MARK: - Lifecycle
+    // MARK: - Lifecycle
 
     init(interactor: FollowersListInteractorInput, router: FollowersListRouterInput) {
-      self.interactor = interactor
+        self.interactor = interactor
         self.router = router
-  }
+    }
 
-  // MARK: - Converting
+    // MARK: - Converting
 
 }
 
 // MARK: - FollowersListPresenterInput
 
 extension FollowersListPresenter: FollowersListPresenterInput {
+
+    func viewDidLoad() {
+        interactor.retrieve()
+    }
+
     func numberOfSections() -> Int {
         return interactor.numberOfCategories()
     }
-    
+
     func numberOfRowsInSection(_ section: Int) -> Int {
         return interactor.numberOfItems(atCategoryIndex: section)
     }
-    
+
     func viewModelAtIndexPath(_ indexPath: IndexPath) -> FollowersListViewModelProtocol {
         let item = interactor.item(at: indexPath.row, forCategoryIndex: indexPath.section)
-        
+
         var ownerImage = #imageLiteral(resourceName: "myProfile")
-        
+
         if let ownerImageData = item?.ownerAvatarData, let ownerImageOpt = UIImage(data: ownerImageData) {
             ownerImage = ownerImageOpt
         }
-        
-        return FollowersListViewModel(name: item?.name ?? "No name", login: item?.login ?? "", image: ownerImage, company: item?.company ?? "No company")
 
+        return FollowersListViewModel(name: item?.name ?? "No name", login: item?.login ?? "", image: ownerImage, company: item?.company ?? "No company")
     }
-    
-  func viewDidLoad() {
-  interactor.retrieve()
-  }
 }
 
 // MARK: - FollowersListInteractorOutput
@@ -63,8 +63,9 @@ extension FollowersListPresenter: FollowersListInteractorOutput {
     func notifyEmptyList() {
         output?.stopLoader()
         output?.displayAlertPopupWithTitle("Empty list", message: "Oops! Seems like you have no followers", confirmationTitle: "OK")
+        router.routeToMyProfile()
     }
-        
+
     func notifyLoading() {
         output?.startLoader()
     }
@@ -77,23 +78,22 @@ extension FollowersListPresenter: FollowersListInteractorOutput {
     func notifyServerError() {
         output?.stopLoader()
         output?.displayAlertPopupWithTitle("Server Error", message: "Oops! a server error occured. Please try again later.", confirmationTitle: "OK")
+        router.routeToMyProfile()
     }
     
     func notifyNetworkError() {
         output?.stopLoader()
         output?.displayAlertPopupWithTitle("Network Error", message: "Please check your connectivity.", confirmationTitle: "OK")
+        router.routeToMyProfile()
     }
-  
+
 }
 
 // MARK: - Privates
 
 private struct FollowersListViewModel: FollowersListViewModelProtocol {
     var name: String
-    
     var login: String
-    
     var image: UIImage
-    
     var company: String
 }

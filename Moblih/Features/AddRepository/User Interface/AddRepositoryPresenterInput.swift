@@ -10,4 +10,9 @@ import Foundation
 
 protocol AddRepositoryPresenterInput {
   func viewDidLoad()
+    func nameTextfieldDidUpdateText(_ text: String?)
+    func descriptionTextfieldDidUpdateText(_ text: String?)
+    func didTapCreateButton()
+    func addReadmeSwitchValueDidChange(_ value: Bool)
+    func privateSwitchValueDidChange(_ value: Bool)
 }

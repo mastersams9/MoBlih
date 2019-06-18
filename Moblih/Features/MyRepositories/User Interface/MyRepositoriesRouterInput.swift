@@ -11,5 +11,5 @@ import Foundation
 public protocol MyRepositoriesRouterInput {
 
     func routeToAddingRepository()
-    func routeToRepositoryInformations(with id: Int)
+    func routeToRepositoryInformations()
 }

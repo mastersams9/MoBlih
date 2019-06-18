@@ -13,10 +13,11 @@ class MyRepositoriesModuleFactory {
     func makeView(from viewController: UIViewController?) {
 
         guard let myRepositoriesViewController = (viewController as? MyRepositoriesViewController) else { return }
-        let oauthConfigurationWrapper = OAuthConfigurationWrapper()
         let keychainWrapper = KeychainWrapper()
-        
-        let interactor = MyRepositoriesInteractor(oauthConfigurationWrapper: oauthConfigurationWrapper, keychainWrapper: keychainWrapper)
+        let githubAPIRepository = GithubAPIRepository(api: MoblihAPI(),
+                                                            keychainWrapper: keychainWrapper)
+
+        let interactor = MyRepositoriesInteractor(githubAPIRepository: githubAPIRepository, repositoryInformationRepository: RepositoryInformationRepository.shared)
         let router = MyRepositoriesRouter()
         let presenter = MyRepositoriesPresenter(interactor: interactor, router: router)
 

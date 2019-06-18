@@ -37,7 +37,7 @@ final class MyProfilePresenter {
 
 extension MyProfilePresenter: MyProfilePresenterInput {
 
-    func viewDidLoad() {
+    func viewWillAppear() {
         interactor.prepare()
     }
 
@@ -67,6 +67,10 @@ extension MyProfilePresenter: MyProfilePresenterInput {
     
     func numberOfRowsInSection(_ section: Int) -> Int {
         return interactor.numberOfItems(atCategoryIndex: section)
+    }
+    
+    func didSelectRowAt(indexPath: IndexPath) {
+        interactor.prepareRepositoryInformation(at: indexPath.row, forCategoryIndex: indexPath.section)
     }
     
     func viewModelAtIndexPath(_ indexPath: IndexPath) -> MyRepositoriesViewModelProtocol {
@@ -146,6 +150,10 @@ extension MyProfilePresenter: MyProfileInteractorOutput {
     func routeToAuthentication() {
         output?.stopLoader()
         router.routeToAuthentication()
+    }
+    
+    func routeToRepositoryInformation() {
+        router.routeToRepositoryInformations()
     }
 }
 

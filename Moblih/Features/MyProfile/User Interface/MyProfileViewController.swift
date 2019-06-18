@@ -36,7 +36,11 @@ class MyProfileViewController: UITableViewController {
         refresherControl.addTarget(self, action: #selector(refresherControlDidTriggerRefresh), for: .valueChanged)
         tableView.addSubview(refresherControl)
         self.refresherControl = refresherControl
-        self.presenter?.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter?.viewWillAppear()
     }
 
     @objc private func refresherControlDidTriggerRefresh() {
@@ -72,6 +76,10 @@ class MyProfileViewController: UITableViewController {
         cell.lastUpdatedLabel.text = viewModel.lastUpdated
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectRowAt(indexPath: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

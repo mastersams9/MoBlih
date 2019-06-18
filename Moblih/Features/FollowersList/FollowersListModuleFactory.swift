@@ -17,9 +17,11 @@ class FollowersListModuleFactory {
         let view = storyboard.instantiateViewController(withIdentifier: "FollowersListViewController") as? FollowersListViewController
         
         
-        let oauthConfigurationWrapper = OAuthConfigurationWrapper()
         let keychainWrapper = KeychainWrapper()
-        let interactor = FollowersListInteractor(oauthConfigurationWrapper: oauthConfigurationWrapper, keychainWrapper: keychainWrapper)
+        let moblihAPI = MoblihAPI()
+        let githubAPIRepository = GithubAPIRepository(api: moblihAPI,
+                                                      keychainWrapper: keychainWrapper)
+        let interactor = FollowersListInteractor(githubAPIRepository: githubAPIRepository)
         let router = FollowersListRouter()
         let presenter = FollowersListPresenter(interactor: interactor, router: router)
         

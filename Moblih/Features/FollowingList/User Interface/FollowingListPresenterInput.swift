@@ -7,11 +7,17 @@
 //  Copyright © 2019 Sami Benmakhlouf. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol FollowingListPresenterInput {
     func viewDidLoad()
     func numberOfSections() -> Int
     func numberOfRowsInSection(_ section: Int) -> Int
+    func titleForDeleteConfirmationButtonForRowAt(_ indexPath: IndexPath) -> String
     func viewModelAtIndexPath(_ indexPath: IndexPath) -> FollowingListViewModelProtocol
+    func addFollowerViewDidFinishWithSuccess()
+    func refresherAttributedTitle() -> NSAttributedString
+    func refresherControlDidTriggerRefresh()
+    func tableViewCommit(_ editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+    func deleteFollowerViewDidFinishWithSuccess()
 }

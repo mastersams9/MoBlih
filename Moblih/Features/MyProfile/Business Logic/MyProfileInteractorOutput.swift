@@ -23,4 +23,5 @@ public protocol MyProfileInteractorOutput: class {
     func notifySuccess()
     func presentFollowingView()
     func presentFollowersView()
+    func routeToRepositoryInformation()
 }

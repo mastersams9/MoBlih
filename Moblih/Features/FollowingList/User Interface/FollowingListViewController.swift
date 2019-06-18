@@ -13,21 +13,44 @@ class FollowingListViewController: UIViewController, Loadable {
     
     // MARK: - Property
     
-    weak var delegate: FollowingListViewDelegate?
-    
+    var addFollowerModuleFactory: AddFollowerModuleFactoryProtocol!
+    var deleteFollowerModuleFactory: DeleteFollowerModuleFactoryProtocol!
+    private var deleteFollowerView: UIView?
     var presenter: FollowingListPresenterInput!
     
     @IBOutlet weak var tableview: UITableView! {
         didSet {
             tableview.dataSource = self
+            tableview.delegate = self
         }
     }
+    
+    private var refresherControl: UIRefreshControl?
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let refresherControl = UIRefreshControl()
+        refresherControl.attributedTitle = presenter.refresherAttributedTitle()
+        refresherControl.addTarget(self, action: #selector(refresherControlDidTriggerRefresh), for: .valueChanged)
         tableview.register(UINib(nibName: "FollowingListTableViewCell", bundle: nil), forCellReuseIdentifier: "FollowingListTableViewCell")
+        tableview.addSubview(refresherControl)
+        self.refresherControl = refresherControl
         presenter.viewDidLoad()
+    }
+    
+    @objc private func refresherControlDidTriggerRefresh() {
+        presenter.refresherControlDidTriggerRefresh()
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension FollowingListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return presenter.titleForDeleteConfirmationButtonForRowAt(indexPath)
     }
 }
 
@@ -60,17 +83,37 @@ extension FollowingListViewController: UITableViewDataSource {
     private func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        presenter.tableViewCommit(editingStyle, forRowAt: indexPath)
+    }
 }
 
 // MARK: - FollowersListPresenterOutput
 
 extension FollowingListViewController: FollowingListPresenterOutput {
+    func displayViewCategories(_ categories: [FollowingListCategoryView]) {
+        categories.forEach {
+            switch $0 {
+            case .addButtonItem:
+                if let addFollowerView = addFollowerModuleFactory.makeView(parentViewController: self) {
+                    navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: addFollowerView)]
+                }
+            }
+        }
+    }
+    
     func startLoader() {
         startLoading()
     }
     
     func stopLoader() {
         stopLoading()
+        refresherControl?.endRefreshing()
     }
     
     func displayAlertPopupWithTitle(_ title: String, message: String, confirmationTitle: String) {
@@ -79,5 +122,70 @@ extension FollowingListViewController: FollowingListPresenterOutput {
     
     func reloadData() {
         tableview.reloadData()
+    }
+    
+    func commitDelete() {
+        if let view = deleteFollowerModuleFactory.makeView() {
+            deleteFollowerView = view
+            self.view.addSubview(view)
+            view.constraintToView(self.view)
+            view.viewDidLoad()
+        }
+    }
+    
+    func deleteRowsAtIndexPaths(_ indexPaths: [IndexPath],
+                                with animation: UITableView.RowAnimation) {
+        tableview.deleteRows(at: indexPaths,
+                             with: animation)
+    }
+}
+
+
+// MARK: - AddFollowerViewDelegate
+
+extension FollowingListViewController: AddFollowerViewDelegate {
+    
+    func addFollowerViewIsRequesting() {
+        startLoading()
+    }
+    
+    func addFollowerViewDidFinishWithSuccess() {
+        stopLoading()
+        presenter.addFollowerViewDidFinishWithSuccess()
+    }
+    
+    func addFollowerViewDidTriggeredServerError(message: String) {
+        stopLoading()
+        presentAlertPopupWithTitle(message: message, confirmationTitle: "OK")
+    }
+    
+    func addFollowerViewDidTriggeredNetworkError(message: String) {
+        stopLoading()
+        presentAlertPopupWithTitle(message: message, confirmationTitle: "OK")
+    }
+    
+    func addFollowerViewDidTriggeredBadUserError(message: String) {
+        stopLoading()
+        presentAlertPopupWithTitle(message: message, confirmationTitle: "OK")
+    }
+}
+
+// MARK: - DeleteFollowerViewDelegate
+
+extension FollowingListViewController: DeleteFollowerViewDelegate {
+    
+    func deleteFollowerViewDidFinishWithSuccess() {
+        deleteFollowerView?.removeFromSuperview()
+        presenter.deleteFollowerViewDidFinishWithSuccess()
+    }
+    
+    func deleteFollowerViewDidTriggerServerError(message: String) {
+        deleteFollowerView?.removeFromSuperview()
+        presentAlertPopupWithTitle(message: message, confirmationTitle: "OK")
+    }
+    
+    func deleteFollowerViewDidTriggerNetworkError(message: String) {
+        deleteFollowerView?.removeFromSuperview()
+        presentAlertPopupWithTitle(message: message, confirmationTitle: "OK")
     }
 }

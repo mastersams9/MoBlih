@@ -114,3 +114,11 @@ extension MyRepositoriesViewController: MyRepositoriesPresenterOutput {
         tableView.reloadData()
     }
 }
+
+// MARK: - AddRepositoryTableViewControllerDelegate
+
+extension MyRepositoriesViewController: AddRepositoryTableViewControllerDelegate {
+    func addRepositoryTableViewControllerDidFinish() {
+        presenter.addRepositoryTableViewControllerDidFinish()
+    }
+}

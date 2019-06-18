@@ -9,19 +9,19 @@
 import UIKit
 
 class MyProfileModuleFactory {
-
+    
     func makeView(from viewController: UIViewController?) {
-
+        
         guard let myProfileViewController = (viewController as? MyProfileViewController) else { return }
-
+        
         let oauthConfigurationWrapper = OAuthConfigurationWrapper()
         let keychainWrapper = KeychainWrapper()
         let logoutModuleFactory = LogoutModuleFactory()
         let myProfileDetailsModuleFactory = MyProfileDetailsModuleFactory()
-        let interactor = MyProfileInteractor(oauthConfigurationWrapper: oauthConfigurationWrapper, keychainWrapper: keychainWrapper)
+        let interactor = MyProfileInteractor(oauthConfigurationWrapper: oauthConfigurationWrapper,keychainWrapper: keychainWrapper, repositoryInformationRepository: RepositoryInformationRepository.shared)
         let router = MyProfileRouter()
         let presenter = MyProfilePresenter(interactor: interactor, router: router)
-
+        
         interactor.output = presenter
         myProfileViewController.presenter = presenter
         myProfileViewController.logoutModuleFactory = logoutModuleFactory

@@ -6,8 +6,9 @@ target 'Moblih' do
   use_frameworks!
 
   # Pods for Moblih
-  pod 'OctoKit.swift'
-  pod 'ListPlaceholder'
+  pod 'OctoKit.swift', '0.8.0'
+  pod 'ListPlaceholder', '1.4'
+  pod 'MaterialComponents/TextFields', '76.1.2'
 
   target 'MoblihTests' do
     inherit! :search_paths

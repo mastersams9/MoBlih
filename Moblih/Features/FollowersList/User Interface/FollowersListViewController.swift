@@ -10,25 +10,25 @@
 import UIKit
 
 class FollowersListViewController: UIViewController, Loadable {
-
-  // MARK: - Property
-
-  weak var delegate: FollowersListViewDelegate?
-
-  var presenter: FollowersListPresenterInput!
-
+    
+    // MARK: - Property
+    
+    weak var delegate: FollowersListViewDelegate?
+    
+    var presenter: FollowersListPresenterInput!
+    
     @IBOutlet weak var tableview: UITableView! {
         didSet {
             tableview.dataSource = self
         }
     }
     // MARK: - Lifecycle
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    tableview.register(UINib(nibName: "FollowersListTableViewCell", bundle: nil), forCellReuseIdentifier: "FollowersListTableViewCell")
-    presenter.viewDidLoad()
-  }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableview.register(UINib(nibName: "FollowersListTableViewCell", bundle: nil), forCellReuseIdentifier: "FollowersListTableViewCell")
+        presenter.viewDidLoad()
+    }
 }
 
 // MARK: - UITableViewDataSource

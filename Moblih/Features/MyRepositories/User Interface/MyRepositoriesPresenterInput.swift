@@ -19,6 +19,7 @@ protocol MyRepositoriesViewModelProtocol {
 
 protocol MyRepositoriesPresenterInput {
     func viewDidLoad()
+    func addRepositoryTableViewControllerDidFinish()
     func refresherAttributedTitle() -> NSAttributedString
     func refresherControlDidTriggerRefresh()
     func numberOfSections() -> Int

@@ -16,6 +16,8 @@ public protocol RepositoryInfoRepositoryItemProtocol {
     var ownerAvatarData: Data? { get }
     var lastUpdatedDate: Date? { get }
     var starCount: Int { get }
+    var watchersCount: Int { get }
+    var defaultBranch: String? { get }
 }
 
 public protocol RepositoryInfoInteractorOutput: class {
@@ -24,4 +26,7 @@ public protocol RepositoryInfoInteractorOutput: class {
     func notifyNoDataError()
     func notifyServerError()
     func notifyNetworkError()
+    func enableManageCollaboratorsEdition()
+    func disableManageCollaboratorsEdition()
+    func routeToManageCollaborators()
 }

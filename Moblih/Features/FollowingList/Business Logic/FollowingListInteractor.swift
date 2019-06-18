@@ -10,19 +10,21 @@
 import Foundation
 
 class FollowingListInteractor {
-  // MARK: - Property
+    // MARK: - Property
 
     weak var output: FollowingListInteractorOutput?
-    private var oauthConfigurationWrapper:OAuthConfigurationWrapper
-    private var keychainWrapper: KeychainWrapper
-    private var following: [FollowingItemProtocol] = []
-  // MARK: - Lifecycle
+    private let githubAPIRepository: GithubAPIRepositoryProtocol
+    private var followings: [FollowingItemProtocol] = []
+    private let followerToDeleteRepository: FollowerToDeleteRepositoryInput
 
+    private var userToDelete: String?
 
-    
-  init(oauthConfigurationWrapper: OAuthConfigurationWrapper, keychainWrapper: KeychainWrapper) {
-    self.oauthConfigurationWrapper = oauthConfigurationWrapper
-    self.keychainWrapper = keychainWrapper
+    // MARK: - Lifecycle
+
+    init(githubAPIRepository: GithubAPIRepositoryProtocol,
+         followerToDeleteRepository: FollowerToDeleteRepositoryInput) {
+        self.githubAPIRepository = githubAPIRepository
+        self.followerToDeleteRepository = followerToDeleteRepository
     }
 }
 
@@ -34,23 +36,20 @@ extension FollowingListInteractor: FollowingListInteractorInput {
     }
     
     func numberOfItems(atCategoryIndex categoryIndex: Int) -> Int {
-        return self.following.count
+        return self.followings.count
     }
     
     func item(at index: Int, forCategoryIndex categoryIndex: Int) -> FollowingItemProtocol? {
-        return following[safe: index]
+        return followings[safe: index]
     }
     
     func retrieve() {
+        output?.updateCategories([.add])
         output?.notifyLoading()
-        guard let accesstoken = try? self.keychainWrapper.findPassword() else {
-            output?.notifyServerError()
-            return
-        }
-        
-        self.oauthConfigurationWrapper.retrieveMyFollowing(with: accesstoken, success: { [weak self] usersResponse in
+
+        self.githubAPIRepository.retrieveFollowings(success: { [weak self] usersResponse in
             DispatchQueue.global().async {
-                self?.following = usersResponse.compactMap {
+                self?.followings = usersResponse.compactMap {
                     guard let login = $0.login else {
                         return nil
                     }
@@ -68,17 +67,46 @@ extension FollowingListInteractor: FollowingListInteractorInput {
                 }
                 DispatchQueue.main.async {
                     self?.output?.notifySuccess()
-                    if (self?.following.count == 0) {
+                    if (self?.followings.count == 0) {
                         self?.output?.notifyEmptyList()
                     }
                 }
             }
         }) { [weak self] error in
-            if case let oauthConfigError = error as OAuthConfigurationWrapperError, oauthConfigError == .network {
+            if case let githubAPIRepositoryError = error as GithubAPIRepositoryError, githubAPIRepositoryError == .network {
                 self?.output?.notifyNetworkError()
                 return
             }
             self?.output?.notifyServerError()
+        }
+    }
+
+    func refresh() {
+        retrieve()
+    }
+
+    func refreshAfterDelete() {
+        DispatchQueue.global().async {
+            if let index = self.followings.firstIndex(where: { $0.login == self.userToDelete }) {
+                self.followings.remove(at: index)
+                DispatchQueue.main.async {
+                    self.output?.notifyDeletedFollower(at: Int(index), forCategoryIndex: 0)
+                }
+            }
+        }
+    }
+
+    func prepareDelete(at index: Int, forCategoryIndex categoryIndex: Int) {
+        guard let follower = followings[safe: index] else {
+            output?.notifyInvalidFollowerError()
+            return
+        }
+        followerToDeleteRepository.save(login: follower.login,
+                                        success: { [weak self] in
+                                            self?.userToDelete = follower.login
+                                            self?.output?.notifyConfirmationDelete()
+        }) { [weak self] _ in
+            self?.output?.notifyUnknownError()
         }
     }
 }

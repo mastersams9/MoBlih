@@ -20,12 +20,13 @@ class LogoutModuleFactory: LogoutModuleFactoryProtocol {
             view?.delegate = delegate
         }
     }
+    
     private let view = UINib(nibName: "LogoutView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? LogoutView
-
+    
     func makeView() -> LogoutView? {
         let interactor = LogoutInteractor(keychainWrapper: KeychainWrapper())
         let presenter = LogoutPresenter(interactor: interactor)
-
+        
         interactor.output = presenter
         view?.presenter = presenter
         presenter.output = view

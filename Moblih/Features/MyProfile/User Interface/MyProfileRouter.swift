@@ -38,4 +38,12 @@ extension MyProfileRouter: MyProfileRouterInput {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         appDelegate.window?.rootViewController = AuthenticationModuleFactory().makeView(eventInput: &appDelegate.eventInput)
     }
+    
+    public func routeToRepositoryInformations() {
+        
+        let repositoryInfoViewController = RepositoryInfoModuleFactory().makeView()
+        
+        viewController?.navigationController?.pushViewController(repositoryInfoViewController,
+                                                                 animated: true)
+    }
 }

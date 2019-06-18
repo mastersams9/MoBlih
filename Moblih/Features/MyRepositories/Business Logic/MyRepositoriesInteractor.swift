@@ -12,15 +12,16 @@ class MyRepositoriesInteractor {
     // MARK: - Property
 
     weak var output: MyRepositoriesInteractorOutput?
-    private let oauthConfigurationWrapper: OAuthConfigurationWrapperProtocol
-    private let keychainWrapper: KeychainWrapperInput
+    private let githubAPIRepository: GithubAPIRepositoryProtocol
     private var repositories = [MyRepositoriesRepositoryItem]()
+    private let repositoryInformationRepository: RepositoryInformationRepositoryProtocol
 
     // MARK: - Lifecycle
 
-    init(oauthConfigurationWrapper: OAuthConfigurationWrapperProtocol, keychainWrapper: KeychainWrapperInput) {
-        self.oauthConfigurationWrapper = oauthConfigurationWrapper
-        self.keychainWrapper = keychainWrapper
+    init(githubAPIRepository: GithubAPIRepositoryProtocol,
+         repositoryInformationRepository: RepositoryInformationRepositoryProtocol) {
+        self.githubAPIRepository = githubAPIRepository
+        self.repositoryInformationRepository = repositoryInformationRepository
     }
 }
 
@@ -30,12 +31,8 @@ extension MyRepositoriesInteractor: MyRepositoriesInteractorInput {
 
     func fetch() {
         output?.notifyLoading()
-        guard let accesstoken = try? self.keychainWrapper.findPassword() else {
-            output?.notifyServerError()
-            return
-        }
 
-        self.oauthConfigurationWrapper.retrieveMyRepositories(with: accesstoken, success: { [weak self] repositoriesResponse in
+        githubAPIRepository.retrieveMyRepositories(success: { [weak self] repositoriesResponse in
             DispatchQueue.global().async {
                 self?.repositories = repositoriesResponse.compactMap {
                     // On supprime les repo qui n'ont pas de nom.
@@ -53,7 +50,7 @@ extension MyRepositoriesInteractor: MyRepositoriesInteractorInput {
                     }
                     return MyRepositoriesRepositoryItem(id: id,
                                                         name: name,
-                                                        description: $0.repositoryDescription,
+                                                        description: $0.description,
                                                         isPrivate: $0.isPrivate ?? false,
                                                         ownerName: $0.owner?.login,
                                                         ownerAvatarData: ownerAvatarData,
@@ -64,7 +61,8 @@ extension MyRepositoriesInteractor: MyRepositoriesInteractorInput {
                 }
             }
         }) { [weak self] error in
-            if case let oauthConfigError = error as OAuthConfigurationWrapperError, oauthConfigError == .network {
+            if case let githubAPIRepositoryError = error as GithubAPIRepositoryError,
+                githubAPIRepositoryError == .network {
                 self?.output?.notifyNetworkError()
                 return
             }
@@ -93,8 +91,10 @@ extension MyRepositoriesInteractor: MyRepositoriesInteractorInput {
     }
     
     func prepareRepositoryInformation(at index: Int, forCategoryIndex categoryIndex: Int) {
-        guard let id = repositories[safe: index]?.id else { return }
-        output?.routeToRepositoryInformation(with: id)
+        guard let repository = repositories[safe: index] else { return }
+        repositoryInformationRepository.save(owner: repository.ownerName, name: repository.name, success: { [weak self] in
+            self?.output?.routeToRepositoryInformation()
+        }, failure: nil)
     }
 }
 

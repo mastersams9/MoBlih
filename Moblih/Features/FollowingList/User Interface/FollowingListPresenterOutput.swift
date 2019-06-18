@@ -8,6 +8,10 @@
 //
 import UIKit
 
+enum FollowingListCategoryView {
+    case addButtonItem
+}
+
 protocol FollowingListViewModelProtocol {
     var name: String { get }
     var login: String { get }
@@ -20,4 +24,8 @@ protocol FollowingListPresenterOutput: class {
     func stopLoader()
     func displayAlertPopupWithTitle(_ title: String, message: String, confirmationTitle: String)
     func reloadData()
+    func displayViewCategories(_ categories: [FollowingListCategoryView])
+    func commitDelete()
+    func deleteRowsAtIndexPaths(_ indexPaths: [IndexPath],
+                                with animation: UITableView.RowAnimation)
 }

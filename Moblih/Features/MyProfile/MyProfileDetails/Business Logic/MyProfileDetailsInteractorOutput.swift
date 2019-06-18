@@ -12,9 +12,10 @@ public protocol MyProfileDetailsItemProtocol {
     var login: String { get }
     var name: String? { get }
     var company: String? { get }
-    var numberOfPublicRepos: Int? { get }
-    var numberOfPrivateRepos: Int? { get }
+    var numberOfRepos: Int { get }
     var ownerAvatarData: Data? { get }
+    var followings: Int { get }
+    var followers: Int { get }
 }
 
 public protocol MyProfileDetailsInteractorOutput: class {

@@ -22,5 +22,7 @@ open class FollowersListRouter {
 // MARK: - FollowersListRouterInput
 
 extension FollowersListRouter: FollowersListRouterInput {
-    
+    public func routeToMyProfile() {
+        self.viewController?.dismiss(animated: true, completion: nil)
+    }
 }

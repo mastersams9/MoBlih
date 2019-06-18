@@ -18,11 +18,12 @@ class MyProfileDetailsModuleFactory: MyProfileDetailsModuleFactoryProtocol {
     weak var delegate: MyProfileDetailsViewDelegate?
 
     func makeView() -> MyProfileDetailsView? {
-        let oauthConfigurationWrapper = OAuthConfigurationWrapper()
         let keychainWrapper = KeychainWrapper()
+        let moblihAPI = MoblihAPI()
+        let githubAPIRepository = GithubAPIRepository(api: moblihAPI,
+                                                      keychainWrapper: keychainWrapper)
 
-        let interactor = MyProfileDetailsInteractor(oauthConfigurationWrapper: oauthConfigurationWrapper,
-                                                    keychainWrapper: keychainWrapper)
+        let interactor = MyProfileDetailsInteractor(githubAPIRepository: githubAPIRepository)
         let presenter = MyProfileDetailsPresenter(interactor: interactor)
         interactor.output = presenter
 

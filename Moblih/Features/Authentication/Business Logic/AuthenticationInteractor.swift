@@ -14,13 +14,16 @@ class AuthenticationInteractor
     var output: AuthenticationInteractorOutput? = nil
     private let repository: AuthenticationRepositoryInput
     private let oauthConfigurationWrapper: OAuthConfigurationWrapperProtocol
+    private let githubAPIRepository: GithubAPIRepositoryProtocol
     private let keychainWrapper: KeychainWrapperInput
     
     init(repository: AuthenticationRepositoryInput,
          oauthConfigurationWrapper: OAuthConfigurationWrapperProtocol,
+         githubAPIRepository: GithubAPIRepositoryProtocol,
          keychainWrapper: KeychainWrapperInput) {
         self.repository = repository
         self.oauthConfigurationWrapper = oauthConfigurationWrapper
+        self.githubAPIRepository = githubAPIRepository
         self.keychainWrapper = keychainWrapper
     }
 }
@@ -60,21 +63,17 @@ extension AuthenticationInteractor: AuthenticationInteractorEventInput {
                 }
                 return
             }
-            self.oauthConfigurationWrapper.retrieveUserInformations(with: accessToken,
-                                                                    success: { userInformation in
-                                                                        self.repository.quit {
-                                                                            guard let accountName = userInformation.login else {
-                                                                                self.output?.showServerError()
-                                                                                return
-                                                                            }
-                                                                            do {
-                                                                                try self.keychainWrapper.save(accessToken: accessToken,
-                                                                                                              accountName: accountName)
-                                                                                self.output?.didAuthenticationSucceed()
-                                                                            } catch {
-                                                                                self.output?.showServerError()
-                                                                            }
-                                                                        }
+            self.githubAPIRepository.retrieveUserLogin(with: accessToken,
+                                                       success: { login in
+                                                        self.repository.quit {
+                                                            do {
+                                                                try self.keychainWrapper.save(accessToken: accessToken,
+                                                                                              accountName: login)
+                                                                self.output?.didAuthenticationSucceed()
+                                                            } catch {
+                                                                self.output?.showServerError()
+                                                            }
+                                                        }
             }, failure: { error in
                 self.repository.quit {
                     if error == .network {

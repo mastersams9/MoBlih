@@ -14,6 +14,8 @@ protocol MyProfileDetailsViewModelProtocol {
     var image: UIImage { get }
     var company: String { get }
     var numberOfRepositories: String { get }
+    var followings: String { get }
+    var followers: String { get }
 }
 
 protocol MyProfileDetailsPresenterOutput: class {

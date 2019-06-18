@@ -8,15 +8,15 @@
 
 import UIKit
 
-open class MyRepositoriesRouter {
+class MyRepositoriesRouter {
 
-  // MARK: - Property
+    // MARK: - Property
 
-  public weak var viewController: UIViewController?
+    weak var viewController: MyRepositoriesViewController?
 
-  // MARK: - Lifecycle
+    // MARK: - Lifecycle
 
-  public init() { }
+    init() { }
 }
 
 // MARK: - MyRepositoriesRouterInput
@@ -24,14 +24,14 @@ open class MyRepositoriesRouter {
 extension MyRepositoriesRouter: MyRepositoriesRouterInput {
 
     public func routeToAddingRepository() {
-        let addRepositoryViewController = AddRepositoryModuleFactory().makeView()
+        let addRepositoryViewController = AddRepositoryModuleFactory().makeView(delegate: viewController)
         viewController?.navigationController?.pushViewController(addRepositoryViewController,
                                                                  animated: true)
     }
     
-    public func routeToRepositoryInformations(with id: Int) {
+    public func routeToRepositoryInformations() {
         
-        let repositoryInfoViewController = RepositoryInfoModuleFactory().makeView(id: id)
+        let repositoryInfoViewController = RepositoryInfoModuleFactory().makeView()
         
         viewController?.navigationController?.pushViewController(repositoryInfoViewController,
                                                                  animated: true)

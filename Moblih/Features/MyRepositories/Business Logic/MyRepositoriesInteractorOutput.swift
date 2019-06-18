@@ -14,5 +14,5 @@ public protocol MyRepositoriesInteractorOutput: class {
     func notifyServerError()
     func notifyNetworkError()
     func routeToAddingRepository()
-    func routeToRepositoryInformation(with id: Int)
+    func routeToRepositoryInformation()
 }

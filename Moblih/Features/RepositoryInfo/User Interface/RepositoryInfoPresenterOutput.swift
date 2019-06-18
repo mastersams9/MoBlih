@@ -9,13 +9,21 @@
 import UIKit
 
 protocol RepositoryInfoRepositoryViewModelProtocol {
-    var name: String { get }
+    var title: String { get }
+    var descriptionText: String { get }
     var description: String { get }
     var repositoryPrivacyImage: UIImage { get }
+    var ownerText: String { get }
     var ownerName: String { get }
     var ownerAvatarImage: UIImage { get }
     var lastUpdatedText: String { get }
-    var starCountText: String { get }
+    var lastUpdated: String { get }
+    var starsCountText: String { get }
+    var starsCount: String { get }
+    var watchersCountText: String { get }
+    var watchersCount: String { get }
+    var defaultBranchText: String { get }
+    var defaultBranch: String { get }
 }
 
 protocol RepositoryInfoPresenterOutput: class {
@@ -23,4 +31,5 @@ protocol RepositoryInfoPresenterOutput: class {
     func displayRepositoryInformation(viewModel: RepositoryInfoRepositoryViewModelProtocol)
     func startLoader()
     func stopLoader()
+    func updateManageCollaboratorsButtonVisibility(_ isVisible: Bool)
 }

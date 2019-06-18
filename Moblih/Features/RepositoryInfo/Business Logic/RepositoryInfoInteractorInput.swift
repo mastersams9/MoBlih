@@ -10,4 +10,6 @@ import Foundation
 
 public protocol RepositoryInfoInteractorInput {
     func retrieve()
+    func refresh()
+    func prepareManageCollaborators()
 }

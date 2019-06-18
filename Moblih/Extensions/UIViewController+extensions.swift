@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController {
-    func presentAlertPopupWithTitle(_ title: String, message: String, confirmationTitle: String, cancelTitle: String? = nil, confirmHandler: (() -> Void)? = nil, cancelHandler: (() -> Void)? = nil) {
+    func presentAlertPopupWithTitle(_ title: String? = nil, message: String, confirmationTitle: String, cancelTitle: String? = nil, confirmHandler: (() -> Void)? = nil, cancelHandler: (() -> Void)? = nil) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         var okAction = UIAlertAction(title: confirmationTitle, style: .default) { _ in
             confirmHandler?()
@@ -27,7 +27,7 @@ extension UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
-    func presentAlertPopupWithText(_ title: String,
+    func presentAlertPopupWithTextfield(_ title: String,
                                     message: String,
                                     textFieldConfigurationHandler: ((UITextField) -> Void)? = nil,
                                     confirmationTitle: String, cancelTitle: String? = nil,

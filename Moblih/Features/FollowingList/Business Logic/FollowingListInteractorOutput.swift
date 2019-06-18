@@ -9,6 +9,10 @@
 
 import Foundation
 
+public enum FollowingListCategory: Int {
+    case add = 0
+}
+
 public protocol FollowingItemProtocol {
     var login: String { get }
     var name: String? { get }
@@ -22,4 +26,9 @@ public protocol FollowingListInteractorOutput: class {
     func notifyLoading()
     func notifyServerError()
     func notifyNetworkError()
+    func notifyInvalidFollowerError()
+    func updateCategories(_ categories: [FollowingListCategory])
+    func notifyConfirmationDelete()
+    func notifyUnknownError()
+    func notifyDeletedFollower(at index: Int, forCategoryIndex categoryIndex: Int)
 }

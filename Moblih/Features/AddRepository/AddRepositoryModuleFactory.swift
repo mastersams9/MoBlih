@@ -10,21 +10,24 @@ import UIKit
 
 class AddRepositoryModuleFactory {
     
-    func makeView() -> UIViewController {
+    func makeView(delegate: AddRepositoryTableViewControllerDelegate? = nil) -> UIViewController {
         let storyboard = UIStoryboard(name: "AddRepository", bundle: nil)
-        let addRepositoryViewController = storyboard.instantiateViewController(withIdentifier: "AddRepositoryViewController") as? AddRepositoryViewController
+        let addRepositoryTableViewController = storyboard.instantiateViewController(withIdentifier: "AddRepositoryTableViewController") as? AddRepositoryTableViewController
 
-        let oauthConfigurationWrapper = OAuthConfigurationWrapper()
         let keychainWrapper = KeychainWrapper()
-        let interactor = AddRepositoryInteractor(oauthConfigurationWrapper: oauthConfigurationWrapper, keychainWrapper: keychainWrapper)
+        let githubAPIRepository = GithubAPIRepository(api: MoblihAPI(),
+                                                      keychainWrapper: keychainWrapper)
+        let interactor = AddRepositoryInteractor(githubAPIRepository: githubAPIRepository,
+                                                 keychainWrapper: keychainWrapper)
         let router = AddRepositoryRouter()
+        router.delegate = delegate
         let presenter = AddRepositoryPresenter(interactor: interactor, router: router)
 
         interactor.output = presenter
-        addRepositoryViewController?.presenter = presenter
-        presenter.output = addRepositoryViewController
-        router.viewController = addRepositoryViewController
+        addRepositoryTableViewController?.presenter = presenter
+        presenter.output = addRepositoryTableViewController
+        router.viewController = addRepositoryTableViewController
 
-        return addRepositoryViewController ?? UIViewController()
+        return addRepositoryTableViewController ?? UIViewController()
     }
 }

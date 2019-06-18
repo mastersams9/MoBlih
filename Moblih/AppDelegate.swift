@@ -33,3 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+private struct GithubAPIRepositoryCreationRequest: GithubAPIRepositoryCreationRequestProtocol {
+    var name: String
+    var description: String?
+    var isPrivate: Bool
+    var isReadmeAutoInit: Bool
+}

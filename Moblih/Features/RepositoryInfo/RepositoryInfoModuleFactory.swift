@@ -10,20 +10,25 @@ import UIKit
 
 class RepositoryInfoModuleFactory {
     
-    func makeView(id: Int) -> UIViewController {
+    func makeView() -> UIViewController {
         
         let storyboard = UIStoryboard(name: "RepositoryInformation", bundle: nil)
         let repositoryInfoViewController = storyboard.instantiateViewController(withIdentifier: "RepositoryInfoViewController") as? RepositoryInfoViewController
 
-        let oauthConfigurationWrapper = OAuthConfigurationWrapper()
         let keychainWrapper = KeychainWrapper()
+        let githubAPIRepository = GithubAPIRepository(api: MoblihAPI(),
+                                                            keychainWrapper: keychainWrapper)
         
-        let interactor = RepositoryInfoInteractor(oauthConfigurationWrapper: oauthConfigurationWrapper, keychainWrapper: keychainWrapper, id: id)
-        let presenter = RepositoryInfoPresenter(interactor: interactor)
+        let interactor = RepositoryInfoInteractor(githubAPIRepository: githubAPIRepository,
+                                                  repositoryInformationRepository: RepositoryInformationRepository.shared)
+        let router = RepositoryInfoRouter()
+        let presenter = RepositoryInfoPresenter(interactor: interactor,
+                                                router: router)
         
         interactor.output = presenter
         repositoryInfoViewController?.presenter = presenter
         presenter.output = repositoryInfoViewController
+        router.viewController = repositoryInfoViewController
         
         return repositoryInfoViewController ?? UIViewController()
     }

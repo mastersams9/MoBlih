@@ -81,8 +81,8 @@ extension MyProfileDetailsView: MyProfileDetailsPresenterOutput {
         lastNameLabel.text = profileInformation.name
         companyLabel.text = profileInformation.company
         nbRepositoriesLabel.text = profileInformation.numberOfRepositories
-        self.followersLabel.text = "-"
-        self.followingLabel.text = "-"
+        self.followersLabel.text = profileInformation.followers
+        self.followingLabel.text = profileInformation.followings
     }
 
     func delegateServerError(_ title: String,

@@ -13,13 +13,16 @@ final class RepositoryInfoPresenter {
     // MARK: - Property
     
     weak var output: RepositoryInfoPresenterOutput?
-    private var interactor: RepositoryInfoInteractorInput
+    private let interactor: RepositoryInfoInteractorInput
+    private let router: RepositoryInfoRouterInput
     private let dateFormatter = DateFormatter()
     
     // MARK: - Lifecycle
     
-    init(interactor: RepositoryInfoInteractorInput) {
+    init(interactor: RepositoryInfoInteractorInput,
+         router: RepositoryInfoRouterInput) {
         self.interactor = interactor
+        self.router = router
     }
     
     // MARK: - Converting
@@ -38,6 +41,18 @@ extension RepositoryInfoPresenter: RepositoryInfoPresenterInput {
     func viewDidLoad() {
         interactor.retrieve()
     }
+    
+    func refresherAttributedTitle() -> NSAttributedString {
+        return NSAttributedString(string: "Loading...")
+    }
+    
+    func refresherControlDidTriggerRefresh() {
+        interactor.refresh()
+    }
+
+    func manageCollaboratorsDidTouchUpInside() {
+        interactor.prepareManageCollaborators()
+    }
 }
 
 // MARK: - MyRepositoriesInteractorOutput
@@ -54,9 +69,7 @@ extension RepositoryInfoPresenter: RepositoryInfoInteractorOutput {
     
     func notifySuccess(repository: RepositoryInfoRepositoryItemProtocol) {
         let repositoryPrivacyImage = repository.isPrivate ? #imageLiteral(resourceName: "private") : #imageLiteral(resourceName: "public")
-        
-        let starCount = "\(repository.starCount) " + (repository.starCount > 9 ? "stars": "star")
-        
+
         var ownerAvatarImage = #imageLiteral(resourceName: "myProfile")
         
         if let data = repository.ownerAvatarData, let image = UIImage(data: data) {
@@ -65,15 +78,23 @@ extension RepositoryInfoPresenter: RepositoryInfoInteractorOutput {
         
         
         
-        let lastUpdatedText = formattedDateString(from: repository.lastUpdatedDate) ?? "N/A"
+        let lastUpdated = formattedDateString(from: repository.lastUpdatedDate) ?? "N/A"
         
-        let viewModel = RepositoryInfoRepositoryViewModel(name: repository.name,
+        let viewModel = RepositoryInfoRepositoryViewModel(title: repository.name,
+                                                          descriptionText: "Description:",
                                                           description: repository.description ?? "No description",
                                                           repositoryPrivacyImage: repositoryPrivacyImage,
+                                                          ownerText: "Owner:",
                                                           ownerName: repository.ownerName ?? "-",
                                                           ownerAvatarImage: ownerAvatarImage,
-                                                          lastUpdatedText: lastUpdatedText,
-                                                          starCountText: starCount)
+                                                          lastUpdatedText: "📮 Last Updated:",
+                                                          lastUpdated: lastUpdated,
+                                                          starsCountText: "⭐️ Stars:",
+                                                          starsCount: "\(repository.starCount)",
+                                                          watchersCountText: "👀 Watchers:",
+                                                          watchersCount: "\(repository.watchersCount)",
+                                                          defaultBranchText: "🏡 Default Branch:",
+                                                          defaultBranch: "\(repository.defaultBranch ?? "N/A")")
         output?.stopLoader()
         output?.displayRepositoryInformation(viewModel: viewModel)
     }
@@ -87,14 +108,34 @@ extension RepositoryInfoPresenter: RepositoryInfoInteractorOutput {
         output?.stopLoader()
         output?.displayAlertPopupWithTitle("Network Error", message: "Please check your connectivity.", confirmationTitle: "OK")
     }
+
+    func routeToManageCollaborators() {
+        router.routeToManageCollaborators()
+    }
+
+    func enableManageCollaboratorsEdition() {
+        output?.updateManageCollaboratorsButtonVisibility(true)
+    }
+    
+    func disableManageCollaboratorsEdition() {
+        output?.updateManageCollaboratorsButtonVisibility(false)
+    }
 }
 
 private struct RepositoryInfoRepositoryViewModel: RepositoryInfoRepositoryViewModelProtocol {
-    var name: String
+    var title: String
+    var descriptionText: String
     var description: String
     var repositoryPrivacyImage: UIImage
+    var ownerText: String
     var ownerName: String
     var ownerAvatarImage: UIImage
     var lastUpdatedText: String
-    var starCountText: String
+    var lastUpdated: String
+    var starsCountText: String
+    var starsCount: String
+    var watchersCountText: String
+    var watchersCount: String
+    var defaultBranchText: String
+    var defaultBranch: String
 }

@@ -13,15 +13,13 @@ class FollowersListInteractor {
     // MARK: - Property
     
     weak var output: FollowersListInteractorOutput?
-    private var oauthConfigurationWrapper:OAuthConfigurationWrapper
-    private var keychainWrapper: KeychainWrapper
+    private var githubAPIRepository: GithubAPIRepositoryProtocol
     private var followers: [FollowersItemProtocol] = []
     
     // MARK: - Lifecycle
     
-    init(oauthConfigurationWrapper: OAuthConfigurationWrapper, keychainWrapper: KeychainWrapper) {
-        self.oauthConfigurationWrapper = oauthConfigurationWrapper
-        self.keychainWrapper = keychainWrapper
+    init(githubAPIRepository: GithubAPIRepositoryProtocol) {
+        self.githubAPIRepository = githubAPIRepository
     }
 }
 
@@ -39,15 +37,13 @@ extension FollowersListInteractor: FollowersListInteractorInput {
     func item(at index: Int, forCategoryIndex categoryIndex: Int) -> FollowersItemProtocol? {
         return followers[safe: index]
     }
-    
+
+
+
     func retrieve() {
         output?.notifyLoading()
-        guard let accesstoken = try? self.keychainWrapper.findPassword() else {
-            output?.notifyServerError()
-            return
-        }
         
-        self.oauthConfigurationWrapper.retrieveMyFollowers(with: accesstoken, success: { [weak self] usersResponse in
+        self.githubAPIRepository.retrieveFollowers(success: { [weak self] usersResponse in
             DispatchQueue.global().async {
                 self?.followers = usersResponse.compactMap {
                     guard let login = $0.login else {
@@ -73,7 +69,7 @@ extension FollowersListInteractor: FollowersListInteractorInput {
                 }
             }
         }) { [weak self] error in
-            if case let oauthConfigError = error as OAuthConfigurationWrapperError, oauthConfigError == .network {
+            if case let githubAPIRepositoryError = error as GithubAPIRepositoryError, githubAPIRepositoryError == .network {
                 self?.output?.notifyNetworkError()
                 return
             }
