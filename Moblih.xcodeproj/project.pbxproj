@@ -261,7 +261,7 @@
 		102EA0252286EAE80099F5C8 /* LogoutPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPresenterInput.swift; sourceTree = "<group>"; };
 		102EA0262286EAE80099F5C8 /* LogoutPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPresenterOutput.swift; sourceTree = "<group>"; };
 		102EA0272286EAE90099F5C8 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
-		102EA0282286EAE90099F5C8 /* LogoutModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModuleFactory.swift; sourceTree = "<group>"; };
+		102EA0282286EAE90099F5C8 /* LogoutModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogoutModuleFactory.swift; path = "User Interface/LogoutModuleFactory.swift"; sourceTree = "<group>"; };
 		102EA0292286EAE90099F5C8 /* LogoutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutView.xib; sourceTree = "<group>"; };
 		102EA02A2286EAE90099F5C8 /* LogoutViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewDelegate.swift; sourceTree = "<group>"; };
 		102EA0332286EB370099F5C8 /* MyProfileInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInteractorOutput.swift; sourceTree = "<group>"; };
@@ -582,6 +582,7 @@
 		102EA00D22863A4B0099F5C8 /* Logout */ = {
 			isa = PBXGroup;
 			children = (
+				102EA0282286EAE90099F5C8 /* LogoutModuleFactory.swift */,
 				102EA0152286EA070099F5C8 /* User Interface */,
 				102EA00E2286E9CB0099F5C8 /* Business Logic */,
 			);
@@ -606,7 +607,6 @@
 				102EA0262286EAE80099F5C8 /* LogoutPresenterOutput.swift */,
 				102EA0272286EAE90099F5C8 /* LogoutView.swift */,
 				102EA0292286EAE90099F5C8 /* LogoutView.xib */,
-				102EA0282286EAE90099F5C8 /* LogoutModuleFactory.swift */,
 				102EA02A2286EAE90099F5C8 /* LogoutViewDelegate.swift */,
 			);
 			path = "User Interface";

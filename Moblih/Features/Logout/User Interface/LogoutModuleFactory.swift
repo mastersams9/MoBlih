@@ -24,7 +24,10 @@ class LogoutModuleFactory: LogoutModuleFactoryProtocol {
     private let view = UINib(nibName: "LogoutView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? LogoutView
     
     func makeView() -> LogoutView? {
-        let interactor = LogoutInteractor(keychainWrapper: KeychainWrapper())
+        let interactor = LogoutInteractor(keychainWrapper: KeychainWrapper(),
+                                          collaboratorToDeleteRepository: CollaboratorToDeleteRepository.shared,
+                                          followerToDeleteRepository: FollowerToDeleteRepository.shared,
+                                          repositoryInformationRepository: RepositoryInformationRepository.shared)
         let presenter = LogoutPresenter(interactor: interactor)
         
         interactor.output = presenter

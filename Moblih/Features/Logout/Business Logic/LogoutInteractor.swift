@@ -14,11 +14,20 @@ class LogoutInteractor {
 
     weak var output: LogoutInteractorOutput?
     private let keychainWrapper: KeychainWrapperInput
+    private let collaboratorToDeleteRepository: CollaboratorToDeleteRepositoryInput
+    private let followerToDeleteRepository: FollowerToDeleteRepositoryInput
+    private let repositoryInformationRepository: RepositoryInformationRepositoryProtocol
 
     // MARK: - Lifecycle
 
-    init(keychainWrapper: KeychainWrapperInput) {
+    init(keychainWrapper: KeychainWrapperInput,
+         collaboratorToDeleteRepository: CollaboratorToDeleteRepositoryInput,
+         followerToDeleteRepository: FollowerToDeleteRepositoryInput,
+         repositoryInformationRepository: RepositoryInformationRepositoryProtocol) {
         self.keychainWrapper = keychainWrapper
+        self.collaboratorToDeleteRepository = collaboratorToDeleteRepository
+        self.followerToDeleteRepository = followerToDeleteRepository
+        self.repositoryInformationRepository = repositoryInformationRepository
     }
 }
 
@@ -28,6 +37,9 @@ extension LogoutInteractor: LogoutInteractorInput {
 
     func execute() {
         output?.notifyLoading()
+        collaboratorToDeleteRepository.clear(success: nil, failure: nil)
+        followerToDeleteRepository.clear(success: nil, failure: nil)
+        repositoryInformationRepository.clear(success: nil, failure: nil)
         try? keychainWrapper.deletePassword()
         output?.notifySuccess()
     }
